@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\KoiOrderingSystemInJapan.APIService.props" />
+</Project>
