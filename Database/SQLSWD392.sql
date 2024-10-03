@@ -251,11 +251,14 @@ CREATE TABLE Feedback (
 --    Khách hàng xác nhận đơn hàng và thực hiện thanh toán.
 --    Nhân viên giao hàng thực hiện giao cá Koi.
 
-INSERT INTO Roles (RoleName, Description, CreatedBy, IsActive)
+INSERT INTO Roles (RoleName, Description, CreatedDate, IsActive)
 VALUES 
-    ('Admin', 'Quản trị hệ thống', 1, 1),
-    ('Customer', 'Khách hàng mua cá Koi hoặc đặt chuyến tham quan', 1, 1),
-    ('Staff', 'Nhân viên hỗ trợ bán hàng và tổ chức chuyến đi', 1, 1);
+    ('Admin', 'Quản trị hệ thống', GETDATE(), 1),
+    ('Customer', 'Khách hàng mua cá Koi hoặc đặt chuyến tham quan', GETDATE(), 1),
+    ('Sales Staff', 'Nhân viên hỗ trợ bán hàng', GETDATE(), 1),
+    ('Consulting Staff', 'Nhân viên tư vấn', GETDATE(), 1),
+    ('Delivering Staff', 'Nhân viên giao hàng', GETDATE(), 1),
+    ('Manager', 'Quản lý', GETDATE(), 1);
 
 	INSERT INTO Users (FullName, UserName, Password, Email, PhoneNumber, BirthDate, Address, Gender, RoleID, HireDate)
 VALUES
