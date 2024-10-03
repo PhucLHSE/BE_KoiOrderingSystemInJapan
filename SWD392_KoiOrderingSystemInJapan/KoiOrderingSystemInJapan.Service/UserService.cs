@@ -27,15 +27,15 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetAll()
         {
-            var contests = await _unitOfWork.UserRepository.GetAllAsync();
+            var roles = await _unitOfWork.UserRepository.GetAllAsync();
 
-            if (contests == null)
+            if (roles == null)
             {
                 return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new List<User>());
             }
             else
             {
-                return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, contests);
+                return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, roles);
             }
         }
 
@@ -58,9 +58,9 @@ namespace KoiOrderingSystemInJapan.Service
             {
                 int result = -1;
 
-                var contestTmp = _unitOfWork.UserRepository.GetById(user.UserId);
+                var userTmp = _unitOfWork.UserRepository.GetById(user.UserId);
 
-                if (contestTmp != null)
+                if (userTmp != null)
                 {
                     result = await _unitOfWork.UserRepository.UpdateAsync(user);
 

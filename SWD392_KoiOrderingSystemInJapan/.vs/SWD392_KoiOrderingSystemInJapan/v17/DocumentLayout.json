@@ -3,56 +3,12 @@
   "WorkspaceRootPath": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F89E2F4E-C983-4F20-AC55-4D076F5D21FC}|KoiOrderingSystemInJapan.APIService\\KoiOrderingSystemInJapan.APIService.csproj|d:\\university\\swd392_fall2024\\git\\be_koiorderingsysteminjapan\\swd392_koiorderingsysteminjapan\\koiorderingsysteminjapan.apiservice\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F89E2F4E-C983-4F20-AC55-4D076F5D21FC}|KoiOrderingSystemInJapan.APIService\\KoiOrderingSystemInJapan.APIService.csproj|solutionrelative:koiorderingsysteminjapan.apiservice\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F89E2F4E-C983-4F20-AC55-4D076F5D21FC}|KoiOrderingSystemInJapan.APIService\\KoiOrderingSystemInJapan.APIService.csproj|d:\\university\\swd392_fall2024\\git\\be_koiorderingsysteminjapan\\swd392_koiorderingsysteminjapan\\koiorderingsysteminjapan.apiservice\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F89E2F4E-C983-4F20-AC55-4D076F5D21FC}|KoiOrderingSystemInJapan.APIService\\KoiOrderingSystemInJapan.APIService.csproj|solutionrelative:koiorderingsysteminjapan.apiservice\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{173106FC-4FA9-44B6-8922-4F43E40BE0E1}|KoiOrderingSystemInJapan.Service\\KoiOrderingSystemInJapan.Service.csproj|d:\\university\\swd392_fall2024\\git\\be_koiorderingsysteminjapan\\swd392_koiorderingsysteminjapan\\koiorderingsysteminjapan.service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{173106FC-4FA9-44B6-8922-4F43E40BE0E1}|KoiOrderingSystemInJapan.Service\\KoiOrderingSystemInJapan.Service.csproj|solutionrelative:koiorderingsysteminjapan.service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B2D3DB29-6B56-4B51-B916-A6B3BE213BB3}|KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj|d:\\university\\swd392_fall2024\\git\\be_koiorderingsysteminjapan\\swd392_koiorderingsysteminjapan\\koiorderingsysteminjapan.data\\dbcontext\\koiorderingsysteminjapancontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2D3DB29-6B56-4B51-B916-A6B3BE213BB3}|KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj|solutionrelative:koiorderingsysteminjapan.data\\dbcontext\\koiorderingsysteminjapancontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{281E67DD-3907-4085-A334-5C6C0937A520}|KoiOrderingSystemInJapan.Common\\KoiOrderingSystemInJapan.Common.csproj|d:\\university\\swd392_fall2024\\git\\be_koiorderingsysteminjapan\\swd392_koiorderingsysteminjapan\\koiorderingsysteminjapan.common\\const.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{281E67DD-3907-4085-A334-5C6C0937A520}|KoiOrderingSystemInJapan.Common\\KoiOrderingSystemInJapan.Common.csproj|solutionrelative:koiorderingsysteminjapan.common\\const.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B2D3DB29-6B56-4B51-B916-A6B3BE213BB3}|KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj|d:\\university\\swd392_fall2024\\git\\be_koiorderingsysteminjapan\\swd392_koiorderingsysteminjapan\\koiorderingsysteminjapan.data\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2D3DB29-6B56-4B51-B916-A6B3BE213BB3}|KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj|solutionrelative:koiorderingsysteminjapan.data\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{173106FC-4FA9-44B6-8922-4F43E40BE0E1}|KoiOrderingSystemInJapan.Service\\KoiOrderingSystemInJapan.Service.csproj|d:\\university\\swd392_fall2024\\git\\be_koiorderingsysteminjapan\\swd392_koiorderingsysteminjapan\\koiorderingsysteminjapan.service\\base\\serviceresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{173106FC-4FA9-44B6-8922-4F43E40BE0E1}|KoiOrderingSystemInJapan.Service\\KoiOrderingSystemInJapan.Service.csproj|solutionrelative:koiorderingsysteminjapan.service\\base\\serviceresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F89E2F4E-C983-4F20-AC55-4D076F5D21FC}|KoiOrderingSystemInJapan.APIService\\KoiOrderingSystemInJapan.APIService.csproj|d:\\university\\swd392_fall2024\\git\\be_koiorderingsysteminjapan\\swd392_koiorderingsysteminjapan\\koiorderingsysteminjapan.apiservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F89E2F4E-C983-4F20-AC55-4D076F5D21FC}|KoiOrderingSystemInJapan.APIService\\KoiOrderingSystemInJapan.APIService.csproj|solutionrelative:koiorderingsysteminjapan.apiservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B2D3DB29-6B56-4B51-B916-A6B3BE213BB3}|KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj|d:\\university\\swd392_fall2024\\git\\be_koiorderingsysteminjapan\\swd392_koiorderingsysteminjapan\\koiorderingsysteminjapan.data\\base\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2D3DB29-6B56-4B51-B916-A6B3BE213BB3}|KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj|solutionrelative:koiorderingsysteminjapan.data\\base\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F89E2F4E-C983-4F20-AC55-4D076F5D21FC}|KoiOrderingSystemInJapan.APIService\\KoiOrderingSystemInJapan.APIService.csproj|d:\\university\\swd392_fall2024\\git\\be_koiorderingsysteminjapan\\swd392_koiorderingsysteminjapan\\koiorderingsysteminjapan.apiservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F89E2F4E-C983-4F20-AC55-4D076F5D21FC}|KoiOrderingSystemInJapan.APIService\\KoiOrderingSystemInJapan.APIService.csproj|solutionrelative:koiorderingsysteminjapan.apiservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F89E2F4E-C983-4F20-AC55-4D076F5D21FC}|KoiOrderingSystemInJapan.APIService\\KoiOrderingSystemInJapan.APIService.csproj|d:\\university\\swd392_fall2024\\git\\be_koiorderingsysteminjapan\\swd392_koiorderingsysteminjapan\\koiorderingsysteminjapan.apiservice\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F89E2F4E-C983-4F20-AC55-4D076F5D21FC}|KoiOrderingSystemInJapan.APIService\\KoiOrderingSystemInJapan.APIService.csproj|solutionrelative:koiorderingsysteminjapan.apiservice\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B2D3DB29-6B56-4B51-B916-A6B3BE213BB3}|KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj|d:\\university\\swd392_fall2024\\git\\be_koiorderingsysteminjapan\\swd392_koiorderingsysteminjapan\\koiorderingsysteminjapan.data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2D3DB29-6B56-4B51-B916-A6B3BE213BB3}|KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj|solutionrelative:koiorderingsysteminjapan.data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B2D3DB29-6B56-4B51-B916-A6B3BE213BB3}|KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj|d:\\university\\swd392_fall2024\\git\\be_koiorderingsysteminjapan\\swd392_koiorderingsysteminjapan\\koiorderingsysteminjapan.data\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2D3DB29-6B56-4B51-B916-A6B3BE213BB3}|KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj|solutionrelative:koiorderingsysteminjapan.data\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B2D3DB29-6B56-4B51-B916-A6B3BE213BB3}|KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj|d:\\university\\swd392_fall2024\\git\\be_koiorderingsysteminjapan\\swd392_koiorderingsysteminjapan\\koiorderingsysteminjapan.data\\models\\orderhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2D3DB29-6B56-4B51-B916-A6B3BE213BB3}|KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj|solutionrelative:koiorderingsysteminjapan.data\\models\\orderhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -103,167 +59,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.APIService\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.APIService\\Controllers\\UsersController.cs",
-              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.APIService\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "KoiOrderingSystemInJapan.APIService\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAcwDQAAAAIAAAAAAAAAA==",
+              "Title": "RolesController.cs",
+              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.APIService\\Controllers\\RolesController.cs",
+              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.APIService\\Controllers\\RolesController.cs",
+              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.APIService\\Controllers\\RolesController.cs",
+              "RelativeToolTip": "KoiOrderingSystemInJapan.APIService\\Controllers\\RolesController.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAgwEAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:55:01.446Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GenericRepository.cs",
-              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\Base\\GenericRepository.cs",
-              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.Data\\Base\\GenericRepository.cs",
-              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\Base\\GenericRepository.cs",
-              "RelativeToolTip": "KoiOrderingSystemInJapan.Data\\Base\\GenericRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIMAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:31:53.733Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.APIService\\Program.cs",
-              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.APIService\\Program.cs",
-              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.APIService\\Program.cs",
-              "RelativeToolTip": "KoiOrderingSystemInJapan.APIService\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:57:28.788Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ServiceResult.cs",
-              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Service\\Base\\ServiceResult.cs",
-              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.Service\\Base\\ServiceResult.cs",
-              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Service\\Base\\ServiceResult.cs",
-              "RelativeToolTip": "KoiOrderingSystemInJapan.Service\\Base\\ServiceResult.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAWwBsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:39:17.554Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\Repository\\UserRepository.cs",
-              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.Data\\Repository\\UserRepository.cs",
-              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\Repository\\UserRepository.cs",
-              "RelativeToolTip": "KoiOrderingSystemInJapan.Data\\Repository\\UserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:33:22.15Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Const.cs",
-              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Common\\Const.cs",
-              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.Common\\Const.cs",
-              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Common\\Const.cs",
-              "RelativeToolTip": "KoiOrderingSystemInJapan.Common\\Const.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:41:54.226Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "KoiOrderingSystemInJapanContext.cs",
-              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\DBContext\\KoiOrderingSystemInJapanContext.cs",
-              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.Data\\DBContext\\KoiOrderingSystemInJapanContext.cs",
-              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\DBContext\\KoiOrderingSystemInJapanContext.cs",
-              "RelativeToolTip": "KoiOrderingSystemInJapan.Data\\DBContext\\KoiOrderingSystemInJapanContext.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAD4vzwAAABXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:27:44.509Z",
+              "WhenOpened": "2024-10-03T09:59:26.773Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Service\\UserService.cs",
-              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.Service\\UserService.cs",
-              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Service\\UserService.cs",
-              "RelativeToolTip": "KoiOrderingSystemInJapan.Service\\UserService.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAMwDcAAAAIAAAAAAAAAA==",
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.APIService\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.APIService\\Controllers\\UsersController.cs",
+              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.APIService\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "KoiOrderingSystemInJapan.APIService\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwEQAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:40:11.268Z",
+              "WhenOpened": "2024-09-29T15:55:01.446Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.APIService\\appsettings.json",
-              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.APIService\\appsettings.json",
-              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.APIService\\appsettings.json",
-              "RelativeToolTip": "KoiOrderingSystemInJapan.APIService\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-02T18:04:10.623Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "WeatherForecastController.cs",
-              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.APIService\\Controllers\\WeatherForecastController.cs",
-              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.APIService\\Controllers\\WeatherForecastController.cs",
-              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.APIService\\Controllers\\WeatherForecastController.cs",
-              "RelativeToolTip": "KoiOrderingSystemInJapan.APIService\\Controllers\\WeatherForecastController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:53:11.729Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\UnitOfWork.cs",
-              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.Data\\UnitOfWork.cs",
-              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\UnitOfWork.cs",
-              "RelativeToolTip": "KoiOrderingSystemInJapan.Data\\UnitOfWork.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABkAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:35:42.138Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Payment.cs",
-              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\Models\\Payment.cs",
-              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.Data\\Models\\Payment.cs",
-              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\Models\\Payment.cs",
-              "RelativeToolTip": "KoiOrderingSystemInJapan.Data\\Models\\Payment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:27:58.025Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "OrderHistory.cs",
-              "DocumentMoniker": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\Models\\OrderHistory.cs",
-              "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.Data\\Models\\OrderHistory.cs",
-              "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\Models\\OrderHistory.cs",
-              "RelativeToolTip": "KoiOrderingSystemInJapan.Data\\Models\\OrderHistory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:27:56.969Z"
             }
           ]
         }
