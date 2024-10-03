@@ -3155,11 +3155,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\University\\SWD392_Fall2024\\Project\\Source\\BE\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Service\\KoiOrderingSystemInJapan.Service.csproj",
+      "projectUniqueName": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Service\\KoiOrderingSystemInJapan.Service.csproj",
       "projectName": "KoiOrderingSystemInJapan.Service",
-      "projectPath": "D:\\University\\SWD392_Fall2024\\Project\\Source\\BE\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Service\\KoiOrderingSystemInJapan.Service.csproj",
+      "projectPath": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Service\\KoiOrderingSystemInJapan.Service.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\University\\SWD392_Fall2024\\Project\\Source\\BE\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Service\\obj\\",
+      "outputPath": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3181,11 +3181,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\University\\SWD392_Fall2024\\Project\\Source\\BE\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Common\\KoiOrderingSystemInJapan.Common.csproj": {
-              "projectPath": "D:\\University\\SWD392_Fall2024\\Project\\Source\\BE\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Common\\KoiOrderingSystemInJapan.Common.csproj"
+            "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Common\\KoiOrderingSystemInJapan.Common.csproj": {
+              "projectPath": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Common\\KoiOrderingSystemInJapan.Common.csproj"
             },
-            "D:\\University\\SWD392_Fall2024\\Project\\Source\\BE\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj": {
-              "projectPath": "D:\\University\\SWD392_Fall2024\\Project\\Source\\BE\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj"
+            "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj": {
+              "projectPath": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Data\\KoiOrderingSystemInJapan.Data.csproj"
             }
           }
         }

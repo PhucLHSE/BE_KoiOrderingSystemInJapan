@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\University\\SWD392_Fall2024\\Project\\Source\\BE\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Common\\KoiOrderingSystemInJapan.Common.csproj",
+      "projectUniqueName": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Common\\KoiOrderingSystemInJapan.Common.csproj",
       "projectName": "KoiOrderingSystemInJapan.Common",
-      "projectPath": "D:\\University\\SWD392_Fall2024\\Project\\Source\\BE\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Common\\KoiOrderingSystemInJapan.Common.csproj",
+      "projectPath": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Common\\KoiOrderingSystemInJapan.Common.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\University\\SWD392_Fall2024\\Project\\Source\\BE\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Common\\obj\\",
+      "outputPath": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
