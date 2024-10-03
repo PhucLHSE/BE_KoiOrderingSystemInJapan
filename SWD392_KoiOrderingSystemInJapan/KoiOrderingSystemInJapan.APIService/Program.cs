@@ -21,6 +21,7 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddScoped<KoiOrderingSystemInJapanContext>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<RoleService>();
+builder.Services.AddScoped<FarmService>();
 
 var app = builder.Build();
 

@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace KoiOrderingSystemInJapan.Service
 {
-    public interface IContestService
+    public interface IUserService
     {
         Task<IServiceResult> GetAll();
         Task<IServiceResult> GetById(int UserId);
         Task<IServiceResult> Save(User user);
         Task<IServiceResult> DeleteById(int UserId);
     }
-    public class UserService : IContestService
+    public class UserService : IUserService
     {
         private readonly UnitOfWork _unitOfWork;
         public UserService()
@@ -27,15 +27,15 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetAll()
         {
-            var roles = await _unitOfWork.UserRepository.GetAllAsync();
+            var users = await _unitOfWork.UserRepository.GetAllAsync();
 
-            if (roles == null)
+            if (users == null)
             {
                 return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new List<User>());
             }
             else
             {
-                return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, roles);
+                return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, users);
             }
         }
 
