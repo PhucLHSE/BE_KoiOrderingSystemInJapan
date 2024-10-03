@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KoiOrderingSystemInJapan.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0833bac99d299bc4bd5094f46515569045ed0aba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ff70294a910b7f9e78d5ee25689388f55eba922")]
 [assembly: System.Reflection.AssemblyProductAttribute("KoiOrderingSystemInJapan.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KoiOrderingSystemInJapan.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

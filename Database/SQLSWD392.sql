@@ -49,6 +49,7 @@ CREATE TABLE Farms (
     OwnerName NVARCHAR(200) not null,
     ContactEmail NVARCHAR(100) not null CHECK (ContactEmail LIKE '%@%.%'), -- Xác thực email cơ bản,
     ContactPhone NVARCHAR(20) not null,
+	ImageFarm NVARCHAR(500),
     EstablishedYear INT CHECK (EstablishedYear <= YEAR(GETDATE())), -- Năm thành lập không được lớn hơn năm hiện tại
     AreaSize FLOAT, -- Diện tích trang trại
     IsActive BIT DEFAULT 1 not null,
@@ -66,6 +67,7 @@ CREATE TABLE KoiFishVarieties (
     Description NVARCHAR(500),
     LifespanYears INT, -- Tuổi thọ trung bình
     AverageSize FLOAT not null, -- Kích thước trung bình
+	ImageKoiFish NVARCHAR(500),
     Habitat NVARCHAR(300), -- Môi trường sống tự nhiên
     Diet NVARCHAR(300), -- Chế độ ăn
     ColorPattern NVARCHAR(300), -- Mẫu màu sắc

@@ -35,6 +35,8 @@ public partial class Farm
 
     public DateTime? UpdatedDate { get; set; }
 
+    public string ImageFarm { get; set; }
+
     public virtual ICollection<KoiFish> KoiFishes { get; set; } = new List<KoiFish>();
 
     public virtual ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();

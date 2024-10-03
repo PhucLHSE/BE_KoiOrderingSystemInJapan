@@ -29,5 +29,7 @@ public partial class KoiFishVariety
 
     public string CareDifficulty { get; set; }
 
+    public string ImageKoiFish { get; set; }
+
     public virtual ICollection<KoiFish> KoiFishes { get; set; } = new List<KoiFish>();
 }
