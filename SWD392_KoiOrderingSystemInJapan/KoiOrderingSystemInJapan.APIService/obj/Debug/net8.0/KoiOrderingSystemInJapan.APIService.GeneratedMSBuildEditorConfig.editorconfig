@@ -17,15 +17,15 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = KoiOrderingSystemInJapan.APIService
 build_property.RootNamespace = KoiOrderingSystemInJapan.APIService
-build_property.ProjectDir = D:\University\SWD392_Fall2024\Git\BE_KoiOrderingSystemInJapan\SWD392_KoiOrderingSystemInJapan\KoiOrderingSystemInJapan.APIService\
+build_property.ProjectDir = D:\SWD392\BE_KoiOrderingSystemInJapan\SWD392_KoiOrderingSystemInJapan\KoiOrderingSystemInJapan.APIService\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\University\SWD392_Fall2024\Git\BE_KoiOrderingSystemInJapan\SWD392_KoiOrderingSystemInJapan\KoiOrderingSystemInJapan.APIService
+build_property.MSBuildProjectDirectory = D:\SWD392\BE_KoiOrderingSystemInJapan\SWD392_KoiOrderingSystemInJapan\KoiOrderingSystemInJapan.APIService
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/University/SWD392_Fall2024/Git/BE_KoiOrderingSystemInJapan/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.APIService/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/SWD392/BE_KoiOrderingSystemInJapan/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.APIService/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
