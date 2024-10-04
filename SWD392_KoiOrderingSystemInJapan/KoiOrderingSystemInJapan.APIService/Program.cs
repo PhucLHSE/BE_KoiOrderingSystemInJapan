@@ -23,6 +23,7 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<RoleService>();
 builder.Services.AddScoped<FarmService>();
 builder.Services.AddScoped<TripService>();
+builder.Services.AddScoped<ScheduleService>();
 
 var app = builder.Build();
 
