@@ -94,8 +94,7 @@
               "RelativeToolTip": "KoiOrderingSystemInJapan.APIService\\Controllers\\TripsController.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAkwD8AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T08:00:51.028Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T08:00:51.028Z"
             },
             {
               "$type": "Document",
@@ -107,8 +106,7 @@
               "RelativeToolTip": "KoiOrderingSystemInJapan.APIService\\Controllers\\RolesController.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAA1wCMAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T08:02:17.832Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T08:02:17.832Z"
             },
             {
               "$type": "Document",
@@ -120,8 +118,7 @@
               "RelativeToolTip": "KoiOrderingSystemInJapan.APIService\\Controllers\\SchedulesController.cs",
               "ViewState": "AgIAADEAAAAAAAAAAAAAAD0AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T08:01:35.518Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T08:01:35.518Z"
             },
             {
               "$type": "Document",
@@ -133,8 +130,7 @@
               "RelativeToolTip": "KoiOrderingSystemInJapan.Service\\ScheduleService.cs",
               "ViewState": "AgIAAGUAAAAAAAAAAAAMwHAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T07:55:30.419Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T07:55:30.419Z"
             },
             {
               "$type": "Document",
@@ -146,8 +142,7 @@
               "RelativeToolTip": "KoiOrderingSystemInJapan.Data\\Repository\\ScheduleRepository.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAASwBEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T07:53:58.928Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T07:53:58.928Z"
             },
             {
               "$type": "Document",
@@ -169,7 +164,7 @@
               "RelativeDocumentMoniker": "KoiOrderingSystemInJapan.APIService\\Program.cs",
               "ToolTip": "D:\\University\\SWD392_Fall2024\\Git\\BE_KoiOrderingSystemInJapan\\SWD392_KoiOrderingSystemInJapan\\KoiOrderingSystemInJapan.APIService\\Program.cs",
               "RelativeToolTip": "KoiOrderingSystemInJapan.APIService\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-03T18:57:07.697Z",
               "EditorCaption": ""
