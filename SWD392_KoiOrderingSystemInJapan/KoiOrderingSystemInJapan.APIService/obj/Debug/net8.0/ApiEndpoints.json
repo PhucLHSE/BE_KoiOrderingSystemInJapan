@@ -258,6 +258,135 @@
     ]
   },
   {
+    "ContainingType": "KoiOrderingSystemInJapan.APIService.Controllers.TripsController",
+    "Method": "GetTrips",
+    "RelativePath": "api/Trips",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "KoiOrderingSystemInJapan.Service.Base.IServiceResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "KoiOrderingSystemInJapan.APIService.Controllers.TripsController",
+    "Method": "PostTrip",
+    "RelativePath": "api/Trips",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "trip",
+        "Type": "KoiOrderingSystemInJapan.Data.Models.Trip",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "KoiOrderingSystemInJapan.Service.Base.IServiceResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "KoiOrderingSystemInJapan.APIService.Controllers.TripsController",
+    "Method": "GetTrip",
+    "RelativePath": "api/Trips/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "KoiOrderingSystemInJapan.Service.Base.IServiceResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "KoiOrderingSystemInJapan.APIService.Controllers.TripsController",
+    "Method": "PutTrip",
+    "RelativePath": "api/Trips/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "trip",
+        "Type": "KoiOrderingSystemInJapan.Data.Models.Trip",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "KoiOrderingSystemInJapan.Service.Base.IServiceResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "KoiOrderingSystemInJapan.APIService.Controllers.TripsController",
+    "Method": "DeleteTrip",
+    "RelativePath": "api/Trips/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "KoiOrderingSystemInJapan.Service.Base.IServiceResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "KoiOrderingSystemInJapan.APIService.Controllers.UsersController",
     "Method": "GetUsers",
     "RelativePath": "api/Users",

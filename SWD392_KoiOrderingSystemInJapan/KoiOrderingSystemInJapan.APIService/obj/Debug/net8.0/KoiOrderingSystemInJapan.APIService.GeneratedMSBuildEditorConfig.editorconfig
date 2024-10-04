@@ -26,26 +26,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\University\SWD392_Fall2024\Git\BE_KoiOrderingSystemInJapan\SWD392_KoiOrderingSystemInJapan\KoiOrderingSystemInJapan.APIService
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/University/SWD392_Fall2024/Git/BE_KoiOrderingSystemInJapan/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.APIService/Views/Farms/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFybXNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/University/SWD392_Fall2024/Git/BE_KoiOrderingSystemInJapan/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.APIService/Views/Farms/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFybXNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/University/SWD392_Fall2024/Git/BE_KoiOrderingSystemInJapan/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.APIService/Views/Farms/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFybXNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/University/SWD392_Fall2024/Git/BE_KoiOrderingSystemInJapan/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.APIService/Views/Farms/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFybXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/University/SWD392_Fall2024/Git/BE_KoiOrderingSystemInJapan/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.APIService/Views/Farms/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFybXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/University/SWD392_Fall2024/Git/BE_KoiOrderingSystemInJapan/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.APIService/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

@@ -14,6 +14,7 @@ namespace KoiOrderingSystemInJapan.Data
         private UserRepository userRepository;
         private RoleRepository roleRepository;
         private FarmRepository farmRepository;
+        private TripRepository tripRepository;
 
         public UnitOfWork()
         {
@@ -41,6 +42,14 @@ namespace KoiOrderingSystemInJapan.Data
             get
             {
                 return farmRepository ??= new FarmRepository(context);
+            }
+        }
+
+        public TripRepository TripRepository
+        {
+            get
+            {
+                return tripRepository ??= new TripRepository(context);
             }
         }
     }

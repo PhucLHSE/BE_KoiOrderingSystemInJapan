@@ -22,6 +22,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<RoleService>();
 builder.Services.AddScoped<FarmService>();
+builder.Services.AddScoped<TripService>();
 
 var app = builder.Build();
 
