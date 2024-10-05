@@ -129,6 +129,135 @@
     ]
   },
   {
+    "ContainingType": "KoiOrderingSystemInJapan.APIService.Controllers.KoiFishController",
+    "Method": "GetKoiFish",
+    "RelativePath": "api/KoiFish",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "KoiOrderingSystemInJapan.Service.Base.IServiceResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "KoiOrderingSystemInJapan.APIService.Controllers.KoiFishController",
+    "Method": "PostRole",
+    "RelativePath": "api/KoiFish",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "koiFish",
+        "Type": "KoiOrderingSystemInJapan.Data.Models.KoiFish",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "KoiOrderingSystemInJapan.Service.Base.IServiceResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "KoiOrderingSystemInJapan.APIService.Controllers.KoiFishController",
+    "Method": "GetRole",
+    "RelativePath": "api/KoiFish/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "KoiOrderingSystemInJapan.Service.Base.IServiceResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "KoiOrderingSystemInJapan.APIService.Controllers.KoiFishController",
+    "Method": "PutRole",
+    "RelativePath": "api/KoiFish/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "koiFish",
+        "Type": "KoiOrderingSystemInJapan.Data.Models.KoiFish",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "KoiOrderingSystemInJapan.Service.Base.IServiceResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "KoiOrderingSystemInJapan.APIService.Controllers.KoiFishController",
+    "Method": "DeleteRole",
+    "RelativePath": "api/KoiFish/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "KoiOrderingSystemInJapan.Service.Base.IServiceResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "KoiOrderingSystemInJapan.APIService.Controllers.RolesController",
     "Method": "GetRoles",
     "RelativePath": "api/Roles",
