@@ -16,9 +16,9 @@ namespace KoiOrderingSystemInJapan.APIService.Controllers
     [ApiController]
     public class TripsController : ControllerBase
     {
-        private readonly TripService _tripService;
+        private readonly ITripService _tripService;
 
-        public TripsController(TripService tripService) => _tripService = tripService;
+        public TripsController(ITripService tripService) => _tripService = tripService;
 
         // GET: api/Trips
         [HttpGet]

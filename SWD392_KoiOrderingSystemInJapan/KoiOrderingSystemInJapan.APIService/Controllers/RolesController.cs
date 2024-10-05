@@ -16,9 +16,9 @@ namespace KoiOrderingSystemInJapan.APIService.Controllers
     [ApiController]
     public class RolesController : ControllerBase
     {
-        private readonly RoleService _roleService;
+        private readonly IRoleService _roleService;
 
-        public RolesController(RoleService roleService) => _roleService = roleService;
+        public RolesController(IRoleService roleService) => _roleService = roleService;
 
         // GET: api/Roles
         [HttpGet]
