@@ -17,9 +17,9 @@ namespace KoiOrderingSystemInJapan.APIService.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
 
-        public UsersController(UserService userService) => _userService = userService;
+        public UsersController(IUserService userService) => _userService = userService;
 
         // GET: api/Users
         [HttpGet]

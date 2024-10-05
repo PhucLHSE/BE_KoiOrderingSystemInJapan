@@ -16,9 +16,9 @@ namespace KoiOrderingSystemInJapan.APIService.Controllers
     [ApiController]
     public class SchedulesController : ControllerBase
     {
-        private readonly ScheduleService _scheduleService;
+        private readonly IScheduleService _scheduleService;
 
-        public SchedulesController(ScheduleService scheduleService) => _scheduleService = scheduleService;
+        public SchedulesController(IScheduleService scheduleService) => _scheduleService = scheduleService;
 
         // GET: api/Schedules
         [HttpGet]

@@ -41,11 +41,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IKoiFishService,KoiFishService>();
 builder.Services.AddScoped<KoiOrderingSystemInJapanContext>();
-builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<RoleService>();
-builder.Services.AddScoped<FarmService>();
-builder.Services.AddScoped<TripService>();
-builder.Services.AddScoped<ScheduleService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IRoleService, RoleService>();
+builder.Services.AddScoped<IFarmService, FarmService>();
+builder.Services.AddScoped<ITripService, TripService>();
+builder.Services.AddScoped<IScheduleService, ScheduleService>();
 
 var app = builder.Build();
 

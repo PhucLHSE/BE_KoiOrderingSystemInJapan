@@ -9,6 +9,15 @@
 *.user
 *.userosscache
 *.sln.docstates
+/SWD392_KoiOrderingSystemInJapan/.vs/
+/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.APIService/bin/
+/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.APIService/obj/
+/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.Service/bin/
+/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.Service/obj/
+/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.Data/bin/
+/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.Data/obj/
+/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.Common/bin/
+/SWD392_KoiOrderingSystemInJapan/KoiOrderingSystemInJapan.Common/obj/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

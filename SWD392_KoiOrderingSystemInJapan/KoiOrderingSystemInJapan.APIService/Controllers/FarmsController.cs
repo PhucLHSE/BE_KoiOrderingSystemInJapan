@@ -16,9 +16,9 @@ namespace KoiOrderingSystemInJapan.APIService.Controllers
     [ApiController]
     public class FarmsController : ControllerBase
     {
-        private readonly FarmService _farmService;
+        private readonly IFarmService _farmService;
 
-        public FarmsController(FarmService farmService) => _farmService = farmService;
+        public FarmsController(IFarmService farmService) => _farmService = farmService;
 
         // GET: api/Farms
         [HttpGet]
