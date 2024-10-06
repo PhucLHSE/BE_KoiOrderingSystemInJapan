@@ -17,6 +17,7 @@ namespace KoiOrderingSystemInJapan.Data
         private TripRepository tripRepository;
         private ScheduleRepository scheduleRepository;
         private KoiFishRepository koifishRepository;
+        private KoiFishVarietyRepository koifishVarietyRepository;
 
         public UnitOfWork()
         {
@@ -67,6 +68,13 @@ namespace KoiOrderingSystemInJapan.Data
             get
             {
                 return koifishRepository ??= new KoiFishRepository(context);
+            }
+        }
+        public KoiFishVarietyRepository KoiFishVarietyRepository
+        {
+            get
+            {
+                return koifishVarietyRepository ??= new KoiFishVarietyRepository(context);
             }
         }
     }

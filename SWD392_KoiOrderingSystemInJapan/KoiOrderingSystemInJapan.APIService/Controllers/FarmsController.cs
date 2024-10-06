@@ -9,9 +9,11 @@ using KoiOrderingSystemInJapan.Data.DBContext;
 using KoiOrderingSystemInJapan.Data.Models;
 using KoiOrderingSystemInJapan.Service;
 using KoiOrderingSystemInJapan.Service.Base;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KoiOrderingSystemInJapan.APIService.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class FarmsController : ControllerBase

@@ -1,4 +1,5 @@
-﻿using KoiOrderingSystemInJapan.Data.DBContext;
+﻿using KoiOrderingSystemInJapan.Data;
+using KoiOrderingSystemInJapan.Data.DBContext;
 using KoiOrderingSystemInJapan.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -47,6 +48,7 @@ builder.Services.AddSwaggerGen(c =>
         Version = "v1"
     });
 
+
     // Add JWT Authentication to Swagger
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
@@ -86,6 +88,7 @@ builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IFarmService, FarmService>();
 builder.Services.AddScoped<ITripService, TripService>();
 builder.Services.AddScoped<IScheduleService, ScheduleService>();
+builder.Services.AddScoped<UnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
