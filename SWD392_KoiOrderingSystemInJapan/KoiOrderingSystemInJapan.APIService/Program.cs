@@ -1,4 +1,5 @@
-﻿using KoiOrderingSystemInJapan.Data.DBContext;
+﻿using KoiOrderingSystemInJapan.Data;
+using KoiOrderingSystemInJapan.Data.DBContext;
 using KoiOrderingSystemInJapan.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -50,6 +51,10 @@ builder.Services.AddScoped<IScheduleService, ScheduleService>();
 builder.Services.AddScoped<IOrderHistoryService, OrderHistoryService>();
 builder.Services.AddScoped<IOrderKoiFishService, OrderKoiFishService>();
 builder.Services.AddScoped<IOrderTripService, OrderTripService>();
+builder.Services.AddScoped<IFeedbackService, FeedbackService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<ICheckInService, CheckInService>();
+builder.Services.AddScoped<UnitOfWork>();
 
 var app = builder.Build();
 

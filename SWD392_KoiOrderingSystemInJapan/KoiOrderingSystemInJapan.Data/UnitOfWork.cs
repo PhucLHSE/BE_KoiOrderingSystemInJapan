@@ -20,6 +20,9 @@ namespace KoiOrderingSystemInJapan.Data
         private OrderHistoryRepository orderHistoryRepository;
         private OrderKoiFishRepository orderKoiFishRepository;
         private OrderTripRepository orderTripRepository;
+        private FeedbackRepository feedbackRepository;
+        private PaymentRepository paymentRepository;
+        private CheckInRepository checkInRepository;
 
         public UnitOfWork()
         {
@@ -91,6 +94,30 @@ namespace KoiOrderingSystemInJapan.Data
             get
             {
                 return orderTripRepository ??= new OrderTripRepository(context);
+            }
+        }
+
+        public PaymentRepository PaymentRepository
+        {
+            get
+            {
+                return paymentRepository ??= new PaymentRepository(context);
+            }
+        }
+
+        public CheckInRepository CheckInRepository
+        {
+            get
+            {
+                return checkInRepository ??= new CheckInRepository(context);
+            }
+        }
+
+        public FeedbackRepository FeedbackRepository
+        {
+            get
+            {
+                return feedbackRepository ??= new FeedbackRepository(context);
             }
         }
     }
