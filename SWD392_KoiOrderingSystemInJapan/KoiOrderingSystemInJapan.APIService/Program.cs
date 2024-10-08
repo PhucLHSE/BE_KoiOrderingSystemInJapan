@@ -89,7 +89,7 @@ builder.Services.AddScoped<IFarmService, FarmService>();
 builder.Services.AddScoped<ITripService, TripService>();
 builder.Services.AddScoped<IScheduleService, ScheduleService>();
 builder.Services.AddScoped<UnitOfWork, UnitOfWork>();
-
+builder.Services.AddScoped<IKoiFishVarietyService, KoiFishVarietyService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

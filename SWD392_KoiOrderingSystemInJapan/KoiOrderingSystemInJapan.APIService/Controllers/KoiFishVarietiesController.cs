@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using KoiOrderingSystemInJapan.Data.DBContext;
 using KoiOrderingSystemInJapan.Data.Models;
+using KoiOrderingSystemInJapan.Service;
+using KoiOrderingSystemInJapan.Service.Base;
 
 namespace KoiOrderingSystemInJapan.APIService.Controllers
 {
@@ -14,95 +15,56 @@ namespace KoiOrderingSystemInJapan.APIService.Controllers
     [ApiController]
     public class KoiFishVarietiesController : ControllerBase
     {
-        private readonly KoiOrderingSystemInJapanContext _context;
-
-        public KoiFishVarietiesController(KoiOrderingSystemInJapanContext context)
+        private readonly IKoiFishVarietyService _koiFishVarietyService;
+        public KoiFishVarietiesController(IKoiFishVarietyService koiFishVarietyService)
         {
-            _context = context;
+            _koiFishVarietyService = koiFishVarietyService;
         }
+
+
 
         // GET: api/KoiFishVarieties
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<KoiFishVariety>>> GetKoiFishVarieties()
+        public async Task<IServiceResult> GetKoiFish()
         {
-            return await _context.KoiFishVarieties.ToListAsync();
+            return await _koiFishVarietyService.GetAll();
         }
 
         // GET: api/KoiFishVarieties/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<KoiFishVariety>> GetKoiFishVariety(int id)
+        public async Task<IServiceResult> GetKoi(int id)
         {
-            var koiFishVariety = await _context.KoiFishVarieties.FindAsync(id);
+            var variety = await _koiFishVarietyService.GetById(id);
 
-            if (koiFishVariety == null)
-            {
-                return NotFound();
-            }
-
-            return koiFishVariety;
+            return variety;
         }
 
-        // PUT: api/KoiFishVarieties/5
+        // PUT: api/Roles/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutKoiFishVariety(int id, KoiFishVariety koiFishVariety)
+        public async Task<IServiceResult> PutKoi(int id, KoiFishVariety koiFishVariety)
         {
-            if (id != koiFishVariety.KoiFishVarietyId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(koiFishVariety).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!KoiFishVarietyExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return await _koiFishVarietyService.Save(koiFishVariety);
         }
 
-        // POST: api/KoiFishVarieties
+        // POST: api/Roles
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<KoiFishVariety>> PostKoiFishVariety(KoiFishVariety koiFishVariety)
+        public async Task<IServiceResult> PostKoi(KoiFishVariety koiFishVariety)
         {
-            _context.KoiFishVarieties.Add(koiFishVariety);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetKoiFishVariety", new { id = koiFishVariety.KoiFishVarietyId }, koiFishVariety);
+            return await _koiFishVarietyService.Save(koiFishVariety);
         }
 
-        // DELETE: api/KoiFishVarieties/5
+        // DELETE: api/Roles/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteKoiFishVariety(int id)
+        public async Task<IServiceResult> DeleteKoiFish(int id)
         {
-            var koiFishVariety = await _context.KoiFishVarieties.FindAsync(id);
-            if (koiFishVariety == null)
-            {
-                return NotFound();
-            }
-
-            _context.KoiFishVarieties.Remove(koiFishVariety);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            return await _koiFishVarietyService.DeleteById(id);
         }
 
-        private bool KoiFishVarietyExists(int id)
+        private bool RoleExists(int id)
         {
-            return _context.KoiFishVarieties.Any(e => e.KoiFishVarietyId == id);
+            return _koiFishVarietyService.GetById(id) != null;
         }
     }
 }

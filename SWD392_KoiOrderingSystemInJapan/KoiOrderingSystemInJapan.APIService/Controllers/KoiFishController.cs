@@ -24,7 +24,7 @@ namespace KoiOrderingSystemInJapan.APIService.Controllers
 
         // GET: api/Roles/5
         [HttpGet("{id}")]
-        public async Task<IServiceResult> GetRole(int id)
+        public async Task<IServiceResult> GetKoi(int id)
         {
             var role = await koiFishService.GetById(id);
 
@@ -34,7 +34,7 @@ namespace KoiOrderingSystemInJapan.APIService.Controllers
         // PUT: api/Roles/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IServiceResult> PutRole(int id, KoiFish koiFish)
+        public async Task<IServiceResult> PutKoi(int id, KoiFish koiFish)
         {
             return await koiFishService.Save(koiFish);
         }
@@ -42,14 +42,14 @@ namespace KoiOrderingSystemInJapan.APIService.Controllers
         // POST: api/Roles
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<IServiceResult> PostRole(KoiFish koiFish)
+        public async Task<IServiceResult> PostKoi(KoiFish koiFish)
         {
             return await koiFishService.Save(koiFish);
         }
 
         // DELETE: api/Roles/5
         [HttpDelete("{id}")]
-        public async Task<IServiceResult> DeleteRole(int id)
+        public async Task<IServiceResult> DeleteKoiFish(int id)
         {
             return await koiFishService.DeleteById(id);
         }
