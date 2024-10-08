@@ -47,6 +47,10 @@ builder.Services.AddScoped<IFarmService, FarmService>();
 builder.Services.AddScoped<ITripService, TripService>();
 builder.Services.AddScoped<IScheduleService, ScheduleService>();
 
+builder.Services.AddScoped<IOrderHistoryService, OrderHistoryService>();
+builder.Services.AddScoped<IOrderKoiFishService, OrderKoiFishService>();
+builder.Services.AddScoped<IOrderTripService, OrderTripService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
