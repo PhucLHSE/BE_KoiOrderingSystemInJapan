@@ -81,8 +81,9 @@ builder.Services.AddSwaggerGen(c =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IKoiFishService,KoiFishService>();
 builder.Services.AddScoped<KoiOrderingSystemInJapanContext>();
+builder.Services.AddScoped<IKoiFishService,KoiFishService>();
+builder.Services.AddScoped<IAuthenticationService,AuthenticationService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IFarmService, FarmService>();
