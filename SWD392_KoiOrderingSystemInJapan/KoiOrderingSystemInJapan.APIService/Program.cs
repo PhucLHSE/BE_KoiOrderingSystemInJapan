@@ -17,6 +17,19 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.PropertyNamingPolicy = null; // Giữ nguyên tên thuộc tính
         options.JsonSerializerOptions.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping; // Cho phép ký tự đặc biệt
     });
+
+// Add CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin", builder =>
+    {
+        builder.WithOrigins("http://localhost:3000") // Adjust to match your front-end URL
+               .AllowAnyHeader()
+               .AllowAnyMethod()
+               .AllowCredentials(); // If you need to support cookies/auth
+    });
+});
+
 //Add authentication configure 
 builder.Services.AddAuthentication(options =>
 {
