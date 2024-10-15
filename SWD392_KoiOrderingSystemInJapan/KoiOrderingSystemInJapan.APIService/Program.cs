@@ -20,6 +20,17 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping; // Cho phép ký tự đặc biệt
     });
 
+// Add CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin", builder =>
+    {
+        builder.WithOrigins("http://localhost:3000") // Adjust to match your front-end URL
+               .AllowAnyHeader()
+               .AllowAnyMethod()
+               .AllowCredentials(); // If you need to support cookies/auth
+    });
+});
 
 //Add authentication configure 
 builder.Services.AddAuthentication(options =>
@@ -91,6 +102,11 @@ builder.Services.AddScoped<ITripService, TripService>();
 builder.Services.AddScoped<IScheduleService, ScheduleService>();
 builder.Services.AddScoped<UnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IKoiFishVarietyService, KoiFishVarietyService>();
+
+builder.Services.AddScoped<IOrderHistoryService, OrderHistoryService>();
+builder.Services.AddScoped<IOrderKoiFishService, OrderKoiFishService>();
+builder.Services.AddScoped<IOrderTripService, OrderTripService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
