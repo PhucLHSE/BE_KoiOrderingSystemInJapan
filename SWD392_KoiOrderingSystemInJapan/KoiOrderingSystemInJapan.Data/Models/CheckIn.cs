@@ -9,8 +9,6 @@ public partial class CheckIn
 {
     public int CheckInId { get; set; }
 
-    public int TripId { get; set; }
-
     public int CustomerId { get; set; }
 
     public int ConsultingStaffId { get; set; }
@@ -25,9 +23,9 @@ public partial class CheckIn
 
     public string Notes { get; set; }
 
+    public int? ScheduleId { get; set; }
+
     public virtual User ConsultingStaff { get; set; }
 
     public virtual User Customer { get; set; }
-
-    public virtual Trip Trip { get; set; }
 }

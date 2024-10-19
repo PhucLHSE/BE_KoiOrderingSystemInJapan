@@ -27,6 +27,8 @@ public partial class OrderTrip
 
     public string SpecialRequests { get; set; }
 
+    public int? ScheduleId { get; set; }
+
     public virtual User Customer { get; set; }
 
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();

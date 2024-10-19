@@ -15,7 +15,6 @@ namespace KoiOrderingSystemInJapan.Data
         private RoleRepository roleRepository;
         private FarmRepository farmRepository;
         private TripRepository tripRepository;
-        private ScheduleRepository scheduleRepository;
         private KoiFishRepository koifishRepository;
         private OrderHistoryRepository orderHistoryRepository;
         private OrderKoiFishRepository orderKoiFishRepository;
@@ -58,13 +57,6 @@ namespace KoiOrderingSystemInJapan.Data
             }
         }
 
-        public ScheduleRepository ScheduleRepository
-        {
-            get
-            {
-                return scheduleRepository ??= new ScheduleRepository(context);
-            }
-        }
         public KoiFishRepository KoiFishRepository
         {
             get

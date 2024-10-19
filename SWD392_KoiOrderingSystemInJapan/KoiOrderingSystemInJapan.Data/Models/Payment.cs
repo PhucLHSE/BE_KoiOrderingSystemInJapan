@@ -31,6 +31,8 @@ public partial class Payment
 
     public string Currency { get; set; }
 
+    public bool IsPartialPayment { get; set; }
+
     public virtual User Customer { get; set; }
 
     public virtual OrderKoiFish OrderKoi { get; set; }
