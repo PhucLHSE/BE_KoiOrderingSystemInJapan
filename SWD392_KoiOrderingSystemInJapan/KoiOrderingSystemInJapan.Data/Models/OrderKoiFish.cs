@@ -37,6 +37,8 @@ public partial class OrderKoiFish
 
     public string CancellationReason { get; set; }
 
+    public int InsuranceId { get; set; }
+
     public virtual User Customer { get; set; }
 
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();

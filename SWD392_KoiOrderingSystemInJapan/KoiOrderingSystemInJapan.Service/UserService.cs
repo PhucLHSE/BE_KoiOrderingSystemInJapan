@@ -27,7 +27,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetAll()
         {
-            var users = await _unitOfWork.UserRepository.GetAllAsync();
+            var users = await _unitOfWork.UserRepository.GetAlLUsersAsync();
 
             if (users == null)
             {

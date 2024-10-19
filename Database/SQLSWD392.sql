@@ -49,7 +49,6 @@ CREATE TABLE Farms (
     OwnerName NVARCHAR(200) not null,
     ContactEmail NVARCHAR(100) not null CHECK (ContactEmail LIKE '%@%.%'), -- Xác thực email cơ bản,
     ContactPhone NVARCHAR(20) not null,
-	ImageFarm NVARCHAR(500),
     EstablishedYear INT CHECK (EstablishedYear <= YEAR(GETDATE())), -- Năm thành lập không được lớn hơn năm hiện tại
     AreaSize FLOAT, -- Diện tích trang trại
     IsActive BIT DEFAULT 1 not null,
@@ -67,7 +66,6 @@ CREATE TABLE KoiFishVarieties (
     Description NVARCHAR(500),
     LifespanYears INT, -- Tuổi thọ trung bình
     AverageSize FLOAT not null, -- Kích thước trung bình
-	ImageKoiFish NVARCHAR(500),
     Habitat NVARCHAR(300), -- Môi trường sống tự nhiên
     Diet NVARCHAR(300), -- Chế độ ăn
     ColorPattern NVARCHAR(300), -- Mẫu màu sắc
@@ -116,7 +114,7 @@ CREATE TABLE Trips (
 );
 
 -- Bảng Schedule để quản lý lịch trình các chuyến đi qua nhiều trang trại
-CREATE TABLE Schedule (
+/*CREATE TABLE Schedule (
     ScheduleID INT PRIMARY KEY IDENTITY(1,1),
     TripID INT NOT NULL, -- Liên kết với bảng Trips
     FarmID INT NOT NULL, -- Liên kết với bảng Farms
@@ -128,7 +126,7 @@ CREATE TABLE Schedule (
     UpdatedDate DATETIME,
     FOREIGN KEY (TripID) REFERENCES Trips(TripID),
     FOREIGN KEY (FarmID) REFERENCES Farms(FarmID)
-);
+);*/
 
 -- Bảng CheckIns
 CREATE TABLE CheckIns (
@@ -253,14 +251,11 @@ CREATE TABLE Feedback (
 --    Khách hàng xác nhận đơn hàng và thực hiện thanh toán.
 --    Nhân viên giao hàng thực hiện giao cá Koi.
 
-INSERT INTO Roles (RoleName, Description, CreatedDate, IsActive)
+INSERT INTO Roles (RoleName, Description, CreatedBy, IsActive)
 VALUES 
-    ('Admin', 'Quản trị hệ thống', GETDATE(), 1),
-    ('Customer', 'Khách hàng mua cá Koi hoặc đặt chuyến tham quan', GETDATE(), 1),
-    ('Sales Staff', 'Nhân viên hỗ trợ bán hàng', GETDATE(), 1),
-    ('Consulting Staff', 'Nhân viên tư vấn', GETDATE(), 1),
-    ('Delivering Staff', 'Nhân viên giao hàng', GETDATE(), 1),
-    ('Manager', 'Quản lý', GETDATE(), 1);
+    ('Admin', 'Quản trị hệ thống', 1, 1),
+    ('Customer', 'Khách hàng mua cá Koi hoặc đặt chuyến tham quan', 1, 1),
+    ('Staff', 'Nhân viên hỗ trợ bán hàng và tổ chức chuyến đi', 1, 1);
 
 	INSERT INTO Users (FullName, UserName, Password, Email, PhoneNumber, BirthDate, Address, Gender, RoleID, HireDate)
 VALUES
@@ -289,12 +284,12 @@ VALUES
     ('2023-12-01', 500000, '1 Day', 20, 5, 'Bus', 'Central Station, Tokyo', 'Mang theo hộ chiếu và nước uống'),
     ('2023-12-10', 600000, '2 Days', 30, 10, 'Train', 'Kyoto Main Station', 'Khởi hành lúc 8h sáng, tập trung đúng giờ');
 
-	INSERT INTO Schedule (TripID, FarmID, VisitOrder, VisitDate, StartTime, EndTime)
+/*	INSERT INTO Schedule (TripID, FarmID, VisitOrder, VisitDate, StartTime, EndTime)
 VALUES
     (1, 1, 1, '2023-12-01', '08:00', '10:00'),
     (1, 2, 2, '2023-12-01', '12:00', '14:00'),
     (2, 2, 1, '2023-12-10', '09:00', '11:00');
-
+*/
 	INSERT INTO CheckIns (TripID, CustomerID, ConsultingStaffID, CheckInStatus)
 VALUES
     (1, 2, 3, 'Checked In'),
@@ -324,3 +319,100 @@ VALUES
 VALUES
     (1, 1, 5, 4, 'Dịch vụ tốt, cá Koi khỏe mạnh'),
     (2, 2, 3, 3, 'Chất lượng không như mong đợi');
+
+	-- Cập nhật bảng Users, đổi kiểu dữ liệu của Gender từ TINYINT sang INT
+ALTER TABLE Users
+ALTER COLUMN Gender INT;
+
+-- Nếu có bảng khác như KoiFishes cần thay đổi
+ALTER TABLE KoiFishes
+ALTER COLUMN Gender INT;
+
+DROP TABLE IF EXISTS Schedule;
+
+CREATE TABLE TripSchedules (
+    ScheduleID INT PRIMARY KEY IDENTITY(1,1),
+    TripID INT NOT NULL,  -- Liên kết với bảng Trips
+    StartDate DATE NOT NULL,
+    EndDate DATE NOT NULL,
+    MaxParticipants INT,
+    IsActive BIT DEFAULT 1,
+    CreatedDate DATETIME DEFAULT GETDATE(),
+    UpdatedDate DATETIME,
+    CreatedBy INT,
+    UpdatedBy INT,
+    FOREIGN KEY (TripID) REFERENCES Trips(TripID)
+);
+
+CREATE TABLE ScheduleFarms (
+    ScheduleFarmID INT PRIMARY KEY IDENTITY(1,1),
+    ScheduleID INT NOT NULL,  -- Liên kết với bảng TripSchedules
+    FarmID INT NOT NULL,      -- Liên kết với bảng Farms
+    VisitDate DATE NOT NULL,
+    CreatedDate DATETIME DEFAULT GETDATE(),
+    UpdatedDate DATETIME,
+    CreatedBy INT,
+    UpdatedBy INT,
+    FOREIGN KEY (ScheduleID) REFERENCES TripSchedules(ScheduleID),
+    FOREIGN KEY (FarmID) REFERENCES Farms(FarmID)
+);
+
+ALTER TABLE OrderTrips
+ADD ScheduleID INT,
+    FOREIGN KEY (ScheduleID) REFERENCES TripSchedules(ScheduleID);
+
+CREATE TABLE RefundRequests (
+    RefundRequestID INT PRIMARY KEY IDENTITY(1,1), -- Mã yêu cầu hoàn tiền
+    OrderKoiID INT NOT NULL, -- Liên kết với bảng OrderKoiFishes
+    RequestDate DATETIME DEFAULT GETDATE(), -- Ngày yêu cầu hoàn tiền
+    RefundAmount MONEY, -- Số tiền yêu cầu hoàn lại
+    Reason NVARCHAR(500), -- Lý do yêu cầu hoàn tiền
+    Status NVARCHAR(100) DEFAULT 'Pending', -- Trạng thái của yêu cầu (Pending, Approved, Denied)
+    ProcessedDate DATETIME, -- Ngày xử lý yêu cầu
+    FOREIGN KEY (OrderKoiID) REFERENCES OrderKoiFishes(OrderKoiID)
+);
+
+CREATE TABLE InsurancePolicies (
+    InsuranceID INT PRIMARY KEY IDENTITY(1,1), -- Mã bảo hiểm
+    PolicyName NVARCHAR(200) NOT NULL, -- Tên chính sách bảo hiểm
+    CoverageDetails NVARCHAR(500), -- Chi tiết bảo hiểm (những gì được bảo hiểm)
+    Price MONEY NOT NULL, -- Chi phí bảo hiểm
+    DurationMonths INT NOT NULL, -- Thời hạn bảo hiểm (tính theo tháng)
+    CreatedDate DATETIME DEFAULT GETDATE(),
+    UpdatedDate DATETIME
+);
+
+INSERT INTO InsurancePolicies (PolicyName, CoverageDetails, Price, DurationMonths, CreatedDate, UpdatedDate)
+VALUES 
+    ('Basic Koi Insurance', 'Covers basic health issues and losses due to natural disasters.', 1000.00, 12, GETDATE(), NULL),
+    ('Premium Koi Insurance', 'Covers comprehensive health issues, theft, and natural disasters.', 2000.00, 24, GETDATE(), NULL),
+    ('Full Coverage Koi Insurance', 'Covers all health issues, theft, and full loss replacement.', 3000.00, 36, GETDATE(), NULL);
+
+ALTER TABLE CheckIns
+DROP CONSTRAINT FK__CheckIns__TripID__71D1E811;
+
+ALTER TABLE CheckIns
+DROP COLUMN TripID;
+
+ALTER TABLE CheckIns
+ADD ScheduleID INT,
+    FOREIGN KEY (ScheduleID) REFERENCES TripSchedules(ScheduleID);
+
+ALTER TABLE Payments
+ADD IsPartialPayment BIT NOT NULL DEFAULT 0;
+
+-- Bước 1: Thêm cột InsuranceID với giá trị NULL
+ALTER TABLE OrderKoiFishes
+ADD InsuranceID INT NULL;
+
+-- Bước 2: Cập nhật các bản ghi hiện có với giá trị thích hợp
+UPDATE OrderKoiFishes
+SET InsuranceID = (SELECT TOP 1 InsuranceID FROM InsurancePolicies) -- Chọn giá trị từ bảng InsurancePolicies
+
+-- Bước 3: Thay đổi cột InsuranceID thành NOT NULL
+ALTER TABLE OrderKoiFishes
+ALTER COLUMN InsuranceID INT NOT NULL;
+
+-- Bước 4: Thêm khóa ngoại cho InsuranceID
+ALTER TABLE OrderKoiFishes
+ADD CONSTRAINT FK_OrderKoiFishes_InsuranceID FOREIGN KEY (InsuranceID) REFERENCES InsurancePolicies(InsuranceID);

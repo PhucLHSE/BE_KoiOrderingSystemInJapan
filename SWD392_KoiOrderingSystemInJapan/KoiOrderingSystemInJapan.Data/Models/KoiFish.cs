@@ -29,7 +29,7 @@ public partial class KoiFish
 
     public string Supplier { get; set; }
 
-    public byte Gender { get; set; }
+    public int? Gender { get; set; }
 
     public virtual Farm Farm { get; set; }
 
