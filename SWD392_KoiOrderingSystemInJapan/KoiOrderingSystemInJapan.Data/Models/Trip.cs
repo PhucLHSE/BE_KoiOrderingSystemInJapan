@@ -37,9 +37,5 @@ public partial class Trip
 
     public string CancellationPolicy { get; set; }
 
-    public virtual ICollection<CheckIn> CheckIns { get; set; } = new List<CheckIn>();
-
     public virtual ICollection<OrderTrip> OrderTrips { get; set; } = new List<OrderTrip>();
-
-    public virtual ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();
 }
