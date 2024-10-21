@@ -60,7 +60,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IFarmService, FarmService>();
 builder.Services.AddScoped<ITripService, TripService>();
-
+builder.Services.AddScoped<ITripScheduleService, TripScheduleService>();
 builder.Services.AddScoped<IOrderHistoryService, OrderHistoryService>();
 builder.Services.AddScoped<IOrderKoiFishService, OrderKoiFishService>();
 builder.Services.AddScoped<IOrderTripService, OrderTripService>();

@@ -27,6 +27,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[InsurancePolicies]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[KoiFishes]",
          "ObjectType": 0
       },
@@ -51,11 +55,23 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[RefundRequests]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Roles]",
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[ScheduleFarms]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Trips]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TripSchedules]",
          "ObjectType": 0
       },
       {

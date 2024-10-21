@@ -43,9 +43,13 @@ public partial class OrderKoiFish
 
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
 
+    public virtual InsurancePolicy Insurance { get; set; }
+
     public virtual KoiFish KoiFish { get; set; }
 
     public virtual ICollection<OrderHistory> OrderHistories { get; set; } = new List<OrderHistory>();
 
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
+
+    public virtual ICollection<RefundRequest> RefundRequests { get; set; } = new List<RefundRequest>();
 }

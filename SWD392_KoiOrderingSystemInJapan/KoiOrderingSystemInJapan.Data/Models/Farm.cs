@@ -38,4 +38,6 @@ public partial class Farm
     public string ImageFarm { get; set; }
 
     public virtual ICollection<KoiFish> KoiFishes { get; set; } = new List<KoiFish>();
+
+    public virtual ICollection<ScheduleFarm> ScheduleFarms { get; set; } = new List<ScheduleFarm>();
 }

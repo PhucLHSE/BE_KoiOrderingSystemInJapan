@@ -28,4 +28,6 @@ public partial class CheckIn
     public virtual User ConsultingStaff { get; set; }
 
     public virtual User Customer { get; set; }
+
+    public virtual TripSchedule Schedule { get; set; }
 }

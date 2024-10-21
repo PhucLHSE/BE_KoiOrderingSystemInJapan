@@ -37,5 +37,7 @@ public partial class OrderTrip
 
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 
+    public virtual TripSchedule Schedule { get; set; }
+
     public virtual Trip Trip { get; set; }
 }

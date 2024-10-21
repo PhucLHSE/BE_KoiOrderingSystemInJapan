@@ -3,6 +3,7 @@
 using KoiOrderingSystemInJapan.Common.Enum;
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace KoiOrderingSystemInJapan.Data.Models;
 
@@ -24,6 +25,7 @@ public partial class User
 
     public string Address { get; set; }
 
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public Gender Gender { get; set; }
 
     public string ImageUser { get; set; }
