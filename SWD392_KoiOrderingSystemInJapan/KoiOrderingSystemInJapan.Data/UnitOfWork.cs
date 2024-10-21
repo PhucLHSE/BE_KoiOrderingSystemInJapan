@@ -16,6 +16,7 @@ namespace KoiOrderingSystemInJapan.Data
         private FarmRepository farmRepository;
         private TripRepository tripRepository;
         private KoiFishRepository koifishRepository;
+        private KoiFishVarietyRepository koifishVarietyRepository;
         private OrderHistoryRepository orderHistoryRepository;
         private OrderKoiFishRepository orderKoiFishRepository;
         private OrderTripRepository orderTripRepository;
@@ -66,6 +67,13 @@ namespace KoiOrderingSystemInJapan.Data
             get
             {
                 return koifishRepository ??= new KoiFishRepository(context);
+            }
+        }
+        public KoiFishVarietyRepository KoiFishVarietyRepository
+        {
+            get
+            {
+                return koifishVarietyRepository ??= new KoiFishVarietyRepository(context);
             }
         }
         public OrderHistoryRepository OrderHistoryRepository

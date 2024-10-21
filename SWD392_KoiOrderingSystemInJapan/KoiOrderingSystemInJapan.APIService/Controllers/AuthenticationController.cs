@@ -1,53 +1,70 @@
-﻿using KoiOrderingSystemInJapan.Data.DBContext;
+﻿using KoiOrderingSystemInJapan.Data;
+using KoiOrderingSystemInJapan.Data.DBContext;
+using KoiOrderingSystemInJapan.Data.Models;
+using KoiOrderingSystemInJapan.Data.Repository;
+using KoiOrderingSystemInJapan.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
 namespace KoiOrderingSystemInJapan.APIService.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class AuthenticationController : ControllerBase
     {
-        private readonly KoiOrderingSystemInJapanContext koiOrderingSystemInJapanContext;
-        public IConfiguration Iconfiguration;
-        public AuthenticationController(KoiOrderingSystemInJapanContext koiOrderingSystemInJapanContext, IConfiguration IConfiguration)
+        private readonly IAuthenticationService _authService;
+        private readonly KoiOrderingSystemInJapanContext _context;
+
+        public AuthenticationController(IAuthenticationService authService, KoiOrderingSystemInJapanContext context)
         {
-            this.koiOrderingSystemInJapanContext = koiOrderingSystemInJapanContext;
-            this.Iconfiguration = IConfiguration;
+            _authService = authService;
+            _context = context;
         }
+
         [HttpPost]
-        [Route("/Login")]
-        public IActionResult Login(String email, String password)
+        [Route("Login")]
+        public IActionResult Login(string email, string password)
         {
-            var user = koiOrderingSystemInJapanContext.Users.FirstOrDefault(x => x.Email == email && x.Password == password);
-            if (user != null)
-            {
-                var claims = new[]
-                {
-        new Claim(JwtRegisteredClaimNames.Sub, Iconfiguration["Jwt:Subject"]),
-        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-        new Claim("UserId", user.UserId.ToString()),
-        new Claim("Email", user.Email.ToString())
-    };
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+                return BadRequest("Email and password must be provided.");
 
-                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Iconfiguration["Jwt:Key"]));
-                var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-                var token = new JwtSecurityToken(
-                    Iconfiguration["Jwt:Issuer"],
-                    Iconfiguration["Jwt:Audience"],
-                    claims,
-                    expires: DateTime.UtcNow.AddHours(2),
-                    signingCredentials: signIn
-                );
+            var token = _authService.Authenticate(email, password, out var user);
 
-                string tokenValue = new JwtSecurityTokenHandler().WriteToken(token);
-                return Ok(new { Token = tokenValue, User = user });
-                // return Ok(user);
-            }
-            return NoContent();
+            if (user == null)
+                return BadRequest("User ");
+
+            return Ok(new { Token = token, User = user });
         }
+        [Route("Register")]
+        [HttpPost]
+        public async Task<IActionResult> Register(User user)
+        {
+            if (user == null)
+            {
+                return BadRequest("User data cannot be null.");
+            }
+
+            try
+            {
+                var registeredUser = await _authService.RegisterAsync(user);
+                return Ok(new { Message = "User registered successfully", User = registeredUser });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { Message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = $"An unexpected error occurred: {ex.Message}" });
+            }
+        }
+
+
     }
 }
