@@ -1,4 +1,4 @@
-﻿Create database KoiOrderingSystemInJapan;
+﻿
 Use KoiOrderingSystemInJapan;
 
 -- Bảng Roles
@@ -389,7 +389,7 @@ VALUES
     ('Full Coverage Koi Insurance', 'Covers all health issues, theft, and full loss replacement.', 3000.00, 36, GETDATE(), NULL);
 
 ALTER TABLE CheckIns
-DROP CONSTRAINT FK__CheckIns__TripID__71D1E811;
+DROP CONSTRAINT FK__CheckIns__TripID__5AEE82B9;
 
 ALTER TABLE CheckIns
 DROP COLUMN TripID;

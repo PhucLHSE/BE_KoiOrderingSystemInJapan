@@ -113,6 +113,8 @@ builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<ICheckInService, CheckInService>();
 builder.Services.AddScoped<UnitOfWork>();
 
+builder.Services.AddScoped<IScheduleFarmService, ScheduleFarmService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

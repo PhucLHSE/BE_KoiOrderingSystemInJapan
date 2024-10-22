@@ -24,7 +24,7 @@ namespace KoiOrderingSystemInJapan.Data
         private FeedbackRepository feedbackRepository;
         private PaymentRepository paymentRepository;
         private CheckInRepository checkInRepository;
-
+        private ScheduleFarmRepository scheduleFarmRepository;
         public UnitOfWork()
         {
             context ??= new KoiOrderingSystemInJapanContext();
@@ -126,6 +126,13 @@ namespace KoiOrderingSystemInJapan.Data
             get
             {
                 return feedbackRepository ??= new FeedbackRepository(context);
+            }
+        }
+        public ScheduleFarmRepository ScheduleFarmRepository
+        {
+            get
+            {
+                return scheduleFarmRepository ??= new ScheduleFarmRepository(context);
             }
         }
     }
