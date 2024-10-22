@@ -25,6 +25,8 @@ namespace KoiOrderingSystemInJapan.Data
         private PaymentRepository paymentRepository;
         private CheckInRepository checkInRepository;
         private ScheduleFarmRepository scheduleFarmRepository;
+        private InsurancePolicyRepository insurancePolicyRepository;
+
         public UnitOfWork()
         {
             context ??= new KoiOrderingSystemInJapanContext();
@@ -69,6 +71,7 @@ namespace KoiOrderingSystemInJapan.Data
                 return koifishRepository ??= new KoiFishRepository(context);
             }
         }
+
         public KoiFishVarietyRepository KoiFishVarietyRepository
         {
             get
@@ -90,6 +93,7 @@ namespace KoiOrderingSystemInJapan.Data
                 return orderKoiFishRepository ??= new OrderKoiFishRepository(context);
             }
         }
+
         public OrderTripRepository OrderTripRepository
         {
             get
@@ -97,6 +101,7 @@ namespace KoiOrderingSystemInJapan.Data
                 return orderTripRepository ??= new OrderTripRepository(context);
             }
         }
+
         public TripScheduleRepository TripScheduleRepository
         {
             get
@@ -128,11 +133,20 @@ namespace KoiOrderingSystemInJapan.Data
                 return feedbackRepository ??= new FeedbackRepository(context);
             }
         }
+
         public ScheduleFarmRepository ScheduleFarmRepository
         {
             get
             {
                 return scheduleFarmRepository ??= new ScheduleFarmRepository(context);
+            }
+        }
+
+        public InsurancePolicyRepository InsurancePolicyRepository
+        {
+            get
+            {
+                return insurancePolicyRepository ??= new InsurancePolicyRepository(context);
             }
         }
     }
