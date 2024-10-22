@@ -111,7 +111,7 @@ builder.Services.AddScoped<IFeedbackService, FeedbackService>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<ICheckInService, CheckInService>();
 builder.Services.AddScoped<UnitOfWork>();
-
+builder.Services.AddScoped<IRefundRequestService, RefundRequestService>();
 builder.Services.AddScoped<IScheduleFarmService, ScheduleFarmService>();
 
 var app = builder.Build();

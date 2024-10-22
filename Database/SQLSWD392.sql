@@ -1,4 +1,4 @@
-﻿
+﻿Create database KoiOrderingSystemInJapan;
 Use KoiOrderingSystemInJapan;
 
 -- Bảng Roles
