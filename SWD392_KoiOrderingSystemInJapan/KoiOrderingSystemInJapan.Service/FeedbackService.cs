@@ -19,9 +19,9 @@ namespace KoiOrderingSystemInJapan.Service
     {
         private readonly UnitOfWork _unitOfWork;
 
-        public FeedbackService(UnitOfWork unitOfWork)
+        public FeedbackService()
         {
-            _unitOfWork = unitOfWork;
+            _unitOfWork ??= new UnitOfWork();
         }
 
         public async Task<IServiceResult> GetAll()
