@@ -24,6 +24,7 @@ namespace KoiOrderingSystemInJapan.Data
         private FeedbackRepository feedbackRepository;
         private PaymentRepository paymentRepository;
         private CheckInRepository checkInRepository;
+        private InsurancePolicyRepository insurancePolicyRepository;
 
         public UnitOfWork()
         {
@@ -69,6 +70,7 @@ namespace KoiOrderingSystemInJapan.Data
                 return koifishRepository ??= new KoiFishRepository(context);
             }
         }
+
         public KoiFishVarietyRepository KoiFishVarietyRepository
         {
             get
@@ -76,6 +78,7 @@ namespace KoiOrderingSystemInJapan.Data
                 return koifishVarietyRepository ??= new KoiFishVarietyRepository(context);
             }
         }
+
         public OrderHistoryRepository OrderHistoryRepository
         {
             get
@@ -83,6 +86,7 @@ namespace KoiOrderingSystemInJapan.Data
                 return orderHistoryRepository ??= new OrderHistoryRepository(context);
             }
         }
+
         public OrderKoiFishRepository OrderKoiFishRepository
         {
             get
@@ -90,6 +94,7 @@ namespace KoiOrderingSystemInJapan.Data
                 return orderKoiFishRepository ??= new OrderKoiFishRepository(context);
             }
         }
+
         public OrderTripRepository OrderTripRepository
         {
             get
@@ -97,6 +102,7 @@ namespace KoiOrderingSystemInJapan.Data
                 return orderTripRepository ??= new OrderTripRepository(context);
             }
         }
+
         public TripScheduleRepository TripScheduleRepository
         {
             get
@@ -126,6 +132,14 @@ namespace KoiOrderingSystemInJapan.Data
             get
             {
                 return feedbackRepository ??= new FeedbackRepository(context);
+            }
+        }
+
+        public InsurancePolicyRepository InsurancePolicyRepository
+        {
+            get
+            {
+                return insurancePolicyRepository ??= new InsurancePolicyRepository(context);
             }
         }
     }
