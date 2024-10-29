@@ -5,10 +5,17 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using Net.payOS;
 using System.Text.Encodings.Web;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
+var payOSClientId = builder.Configuration["Environment:PAYOS_CLIENT_ID"] ?? throw new Exception("Cannot find environment");
+var payOSApiKey = builder.Configuration["Environment:PAYOS_API_KEY"] ?? throw new Exception("Cannot find environment");
+var payOSChecksumKey = builder.Configuration["Environment:PAYOS_CHECKSUM_KEY"] ?? throw new Exception("Cannot find environment");
+builder.Services.AddHttpClient();
+var payOS = new PayOS(payOSClientId, payOSApiKey, payOSChecksumKey);
+builder.Services.AddSingleton(payOS);
 
 builder.Services.AddAuthorization();
 
