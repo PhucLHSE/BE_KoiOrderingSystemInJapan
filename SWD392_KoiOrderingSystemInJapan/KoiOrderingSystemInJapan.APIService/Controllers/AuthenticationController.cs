@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -14,6 +15,7 @@ using System.Text;
 
 namespace KoiOrderingSystemInJapan.APIService.Controllers
 {
+    
     [ApiController]
     [Route("[controller]")]
     public class AuthenticationController : ControllerBase
@@ -29,18 +31,19 @@ namespace KoiOrderingSystemInJapan.APIService.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public IActionResult Login(string email, string password)
+        public IActionResult Login([FromBody] UserLoginDto loginDto)
         {
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
-                return BadRequest("Email and password must be provided.");
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            var token = _authService.Authenticate(email, password, out var user);
+            var token = _authService.Authenticate(loginDto.Email, loginDto.Password, out var user);
 
             if (user == null)
-                return BadRequest("User ");
+                return BadRequest("Invalid email or password.");
 
             return Ok(new { Token = token, User = user });
         }
+
         [Route("Register")]
         [HttpPost]
         public async Task<IActionResult> Register(User user)
@@ -64,7 +67,5 @@ namespace KoiOrderingSystemInJapan.APIService.Controllers
                 return StatusCode(500, new { Message = $"An unexpected error occurred: {ex.Message}" });
             }
         }
-
-
     }
 }
