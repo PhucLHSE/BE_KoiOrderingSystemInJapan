@@ -27,7 +27,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetAll()
         {
-            var trips = await _unitOfWork.TripRepository.GetAllAsync();
+            var trips = await _unitOfWork.TripRepository.GetAllTripsAsync();
 
             if (trips == null)
             {
@@ -41,7 +41,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetById(int TripId)
         {
-            var trip = await _unitOfWork.TripRepository.GetByIdAsync(TripId);
+            var trip = await _unitOfWork.TripRepository.GetByIdTripAsync(TripId);
 
             if (trip == null)
             {

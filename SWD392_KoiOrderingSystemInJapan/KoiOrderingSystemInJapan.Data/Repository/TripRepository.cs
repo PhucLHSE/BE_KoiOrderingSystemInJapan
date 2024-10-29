@@ -14,5 +14,21 @@ namespace KoiOrderingSystemInJapan.Data.Repository
     {
         public TripRepository() { }
         public TripRepository(KoiOrderingSystemInJapanContext context) => _context = context;
+
+        public async Task<List<Trip>> GetAllTripsAsync()
+        {
+            return await _context.Trips
+                .Include(t => t.OrderTrips)
+                .Include(t => t.TripSchedules)
+                .ToListAsync();
+        }
+
+        public async Task<Trip> GetByIdTripAsync(int id)
+        {
+            return await _context.Trips
+                .Include(t => t.OrderTrips)
+                .Include(t => t.TripSchedules)
+                .FirstOrDefaultAsync(t => t.TripId == id);
+        }
     }
 }

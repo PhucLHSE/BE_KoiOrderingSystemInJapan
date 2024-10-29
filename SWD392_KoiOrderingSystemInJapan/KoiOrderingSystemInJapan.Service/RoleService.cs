@@ -28,7 +28,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetAll()
         {
-            var roles = await _unitOfWork.RoleRepository.GetAllAsync();
+            var roles = await _unitOfWork.RoleRepository.GetAllRolesAsync();
 
             if (roles == null)
             {
@@ -42,7 +42,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetById(int RoleId)
         {
-            var role = await _unitOfWork.RoleRepository.GetByIdAsync(RoleId);
+            var role = await _unitOfWork.RoleRepository.GetByIdRoleAsync(RoleId);
 
             if (role == null)
             {

@@ -41,7 +41,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetById(int UserID)
         {
-            var user = await _unitOfWork.UserRepository.GetByIdAsync(UserID);
+            var user = await _unitOfWork.UserRepository.GetByIdUserAsync(UserID);
 
             if (user == null)
             {

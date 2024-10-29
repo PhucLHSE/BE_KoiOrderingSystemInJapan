@@ -59,7 +59,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetAll()
         {
-            var list = await _unitOfWork.KoiFishRepository.GetAllAsync();
+            var list = await _unitOfWork.KoiFishRepository.GetAllKoiFishesAsync();
 
             if (list == null)
             {
@@ -73,7 +73,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetById(int koiFishID)
         {
-            var fish = await _unitOfWork.KoiFishRepository.GetByIdAsync(koiFishID);
+            var fish = await _unitOfWork.KoiFishRepository.GetByIdKoiFishAsync(koiFishID);
             if (fish == null)
             {
                 return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new KoiFish());

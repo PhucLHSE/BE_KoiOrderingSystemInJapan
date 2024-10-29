@@ -27,7 +27,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetAll()
         {
-            var farms = await _unitOfWork.FarmRepository.GetAllAsync();
+            var farms = await _unitOfWork.FarmRepository.GetAllFarmsAsync();
 
             if (farms == null)
             {
@@ -41,7 +41,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetById(int FarmId)
         {
-            var farm = await _unitOfWork.FarmRepository.GetByIdAsync(FarmId);
+            var farm = await _unitOfWork.FarmRepository.GetByIdFarmAsync(FarmId);
 
             if (farm == null)
             {
