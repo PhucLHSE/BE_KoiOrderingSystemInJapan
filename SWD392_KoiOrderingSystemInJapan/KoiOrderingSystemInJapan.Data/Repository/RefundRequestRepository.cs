@@ -14,5 +14,19 @@ namespace KoiOrderingSystemInJapan.Data.Repository
     {
         public RefundRequestRepository() { }
         public RefundRequestRepository(KoiOrderingSystemInJapanContext context) => _context = context;
+
+        public async Task<List<RefundRequest>> GetAllRefundRequestsAsync()
+        {
+            return await _context.RefundRequests
+                .Include(rr => rr.OrderKoi)     
+                .ToListAsync();
+        }
+
+        public async Task<RefundRequest> GetByIdRefundRequestAsync(int id)
+        {
+            return await _context.RefundRequests
+                .Include(rr => rr.OrderKoi)
+                .FirstOrDefaultAsync(rr => rr.RefundRequestId == id);
+        }
     }
 }

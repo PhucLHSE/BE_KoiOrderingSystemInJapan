@@ -27,7 +27,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetAll()
         {
-            var checkIns = await _unitOfWork.CheckInRepository.GetAllAsync();
+            var checkIns = await _unitOfWork.CheckInRepository.GetAllCheckInsAsync();
 
             if (checkIns == null)
             {
@@ -41,7 +41,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetById(int CheckInId)
         {
-            var checkIn = await _unitOfWork.CheckInRepository.GetByIdAsync(CheckInId);
+            var checkIn = await _unitOfWork.CheckInRepository.GetByIdCheckInAsync(CheckInId);
 
             if (checkIn == null)
             {

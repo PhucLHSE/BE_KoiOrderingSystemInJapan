@@ -14,5 +14,24 @@ namespace KoiOrderingSystemInJapan.Data.Repository
     {
         public FeedbackRepository() { }
         public FeedbackRepository(KoiOrderingSystemInJapanContext context) => _context = context;
+
+        public async Task<List<Feedback>> GetAllFeedbacksAsync()
+        {
+            return await _context.Feedbacks
+                .Include(fb => fb.Customer)      
+                .Include(fb => fb.OrderKoi)     
+                .Include(fb => fb.OrderTrip)     
+                .ToListAsync();
+        }
+
+        // Method to get Feedback by ID
+        public async Task<Feedback> GetByIdFeedbackAsync(int id)
+        {
+            return await _context.Feedbacks
+                .Include(fb => fb.Customer)
+                .Include(fb => fb.OrderKoi)
+                .Include(fb => fb.OrderTrip)
+                .FirstOrDefaultAsync(fb => fb.FeedbackId == id);
+        }
     }
 }

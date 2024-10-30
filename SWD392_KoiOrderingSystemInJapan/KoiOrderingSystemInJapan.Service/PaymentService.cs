@@ -22,12 +22,12 @@ namespace KoiOrderingSystemInJapan.Service
 
         public PaymentService()
         {
-            _unitOfWork ??= new UnitOfWork(); // Khởi tạo UnitOfWork
+            _unitOfWork ??= new UnitOfWork();
         }
 
         public async Task<IServiceResult> GetAll()
         {
-            var payments = await _unitOfWork.PaymentRepository.GetAllAsync();
+            var payments = await _unitOfWork.PaymentRepository.GetAllPaymentsAsync();
 
             if (payments == null)
             {
@@ -41,7 +41,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetById(int PaymentId)
         {
-            var payment = await _unitOfWork.PaymentRepository.GetByIdAsync(PaymentId);
+            var payment = await _unitOfWork.PaymentRepository.GetByIdPaymentAsync(PaymentId);
 
             if (payment == null)
             {

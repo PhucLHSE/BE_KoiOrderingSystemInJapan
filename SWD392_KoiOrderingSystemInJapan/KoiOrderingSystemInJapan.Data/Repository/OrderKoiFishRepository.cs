@@ -14,5 +14,31 @@ namespace KoiOrderingSystemInJapan.Data.Repository
     {
         public OrderKoiFishRepository() { }
         public OrderKoiFishRepository(KoiOrderingSystemInJapanContext context) => _context = context;
+
+        public async Task<List<OrderKoiFish>> GetAllKoiFishesAsync()
+        {
+            return await _context.OrderKoiFishes
+                .Include(o => o.Customer)          
+                .Include(o => o.Feedbacks)         
+                .Include(o => o.Insurance)         
+                .Include(o => o.KoiFish)           
+                .Include(o => o.OrderHistories) 
+                .Include(o => o.Payments)      
+                .Include(o => o.RefundRequests) 
+                .ToListAsync();
+        }
+
+        public async Task<OrderKoiFish> GetByIdOrderKoiFishAsync(int id)
+        {
+            return await _context.OrderKoiFishes
+                .Include(o => o.Customer)
+                .Include(o => o.Feedbacks)
+                .Include(o => o.Insurance)
+                .Include(o => o.KoiFish)
+                .Include(o => o.OrderHistories)
+                .Include(o => o.Payments)
+                .Include(o => o.RefundRequests)
+                .FirstOrDefaultAsync(o => o.OrderKoiId == id);
+        }
     }
 }

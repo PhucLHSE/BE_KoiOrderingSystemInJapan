@@ -14,6 +14,25 @@ namespace KoiOrderingSystemInJapan.Data.Repository
     {
         public PaymentRepository() { }
         public PaymentRepository(KoiOrderingSystemInJapanContext context) => _context = context;
+
+        public async Task<List<Payment>> GetAllPaymentsAsync()
+        {
+            return await _context.Payments
+                .Include(p => p.Customer)      
+                .Include(p => p.OrderKoi)      
+                .Include(p => p.OrderTrip)     
+                .ToListAsync();
+        }
+
+        public async Task<Payment> GetByIdPaymentAsync(int id)
+        {
+            return await _context.Payments
+                .Include(p => p.Customer)
+                .Include(p => p.OrderKoi)
+                .Include(p => p.OrderTrip)
+                .FirstOrDefaultAsync(p => p.PaymentId == id);
+        }
+
         public async Task UpdatePayment(Payment payment)
         {
             _context.Update(payment);

@@ -28,7 +28,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetAll()
         {
-            var scheduleFarms = await _unitOfWork.ScheduleFarmRepository.GetAllAsync();
+            var scheduleFarms = await _unitOfWork.ScheduleFarmRepository.GetAllScheduleFarmsAsync();
 
             if (scheduleFarms == null)
             {
@@ -42,7 +42,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetById(int ScheduleFarmId)
         {
-            var scheduleFarm = await _unitOfWork.ScheduleFarmRepository.GetByIdAsync(ScheduleFarmId);
+            var scheduleFarm = await _unitOfWork.ScheduleFarmRepository.GetByIdScheduleFarmAsync(ScheduleFarmId);
 
             if (scheduleFarm == null)
             {
