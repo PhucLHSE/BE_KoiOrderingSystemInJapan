@@ -14,5 +14,24 @@ namespace KoiOrderingSystemInJapan.Data.Repository
     {
         public CheckInRepository() { }
         public CheckInRepository(KoiOrderingSystemInJapanContext context) => _context = context;
+
+        public async Task<List<CheckIn>> GetAllCheckInsAsync()
+        {
+            return await _context.CheckIns
+                .Include(ci => ci.ConsultingStaff) 
+                .Include(ci => ci.Customer)       
+                .Include(ci => ci.Schedule)      
+                .ToListAsync();
+        }
+
+        // Method to get CheckIn by ID
+        public async Task<CheckIn> GetByIdCheckInAsync(int id)
+        {
+            return await _context.CheckIns
+                .Include(ci => ci.ConsultingStaff)
+                .Include(ci => ci.Customer)
+                .Include(ci => ci.Schedule)
+                .FirstOrDefaultAsync(ci => ci.CheckInId == id);
+        }
     }
 }

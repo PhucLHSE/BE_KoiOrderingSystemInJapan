@@ -27,7 +27,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetAll()
         {
-            var koiFishes = await _unitOfWork.OrderKoiFishRepository.GetAllAsync();
+            var koiFishes = await _unitOfWork.OrderKoiFishRepository.GetAllKoiFishesAsync();
 
             if (koiFishes == null)
             {
@@ -41,7 +41,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetById(int OrderKoiId)
         {
-            var koiFish = await _unitOfWork.OrderKoiFishRepository.GetByIdAsync(OrderKoiId);
+            var koiFish = await _unitOfWork.OrderKoiFishRepository.GetByIdOrderKoiFishAsync(OrderKoiId);
 
             if (koiFish == null)
             {
