@@ -5,19 +5,11 @@ using System.Threading.Tasks;
 
 namespace KoiOrderingSystemInJapan.Data.Repository
 {
-    public interface IAuthenticationRepository
-    {
-        User GetUserByEmail(string email);
-        Task AddUserAsync(User user);
-        Role GetUserRoleById(int roleId);
-        Task CommitAsync();
-        User GetUserById(int userId);
-        void UpdateUser(User user);
-    }
+   
 
 
 
-    public class AuthenticationRepository : IAuthenticationRepository
+    public class AuthenticationRepository 
     {
         private readonly KoiOrderingSystemInJapanContext _context;
 
