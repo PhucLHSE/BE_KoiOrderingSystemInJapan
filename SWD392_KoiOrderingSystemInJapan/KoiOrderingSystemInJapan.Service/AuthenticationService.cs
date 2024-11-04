@@ -1,56 +1,53 @@
-﻿using KoiOrderingSystemInJapan.Data.DBContext;
+﻿using KoiOrderingSystemInJapan.Common;
 using KoiOrderingSystemInJapan.Data;
 using KoiOrderingSystemInJapan.Data.Models;
+using KoiOrderingSystemInJapan.Data.Repository;
+using KoiOrderingSystemInJapan.Service.Base;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using BCrypt.Net;
-using Microsoft.EntityFrameworkCore;
-using KoiOrderingSystemInJapan.Service.Base;
-using KoiOrderingSystemInJapan.Common;
 
 namespace KoiOrderingSystemInJapan.Service
 {
     public interface IAuthenticationService
-    {string Authenticate(string email, string password, out User user);
+    {
+        string Authenticate(string email, string password, out User user);
         Task<IServiceResult> RegisterAsync(User user);
+        Task<IServiceResult> ForgotPasswordAsync(string email);
+        Task<IServiceResult> ResetPasswordAsync(string token, string newPassword);
     }
+
     public class AuthenticationService : IAuthenticationService
     {
-        private readonly KoiOrderingSystemInJapanContext _context;
-        private readonly IConfiguration _configuration;
         private readonly UnitOfWork _unitOfWork;
+        private readonly IConfiguration _configuration;
+        private readonly IEmailService _emailService;
 
-        public AuthenticationService(KoiOrderingSystemInJapanContext context, IConfiguration configuration, UnitOfWork unitOfWork)
+        public AuthenticationService(UnitOfWork unitOfWork, IConfiguration configuration, IEmailService emailService)
         {
-            _context = context;
-            _configuration = configuration;
             _unitOfWork = unitOfWork;
+            _configuration = configuration;
+            _emailService = emailService;
         }
 
         public string Authenticate(string email, string password, out User user)
         {
-            user = _context.Users.FirstOrDefault(x => x.Email == email && x.Password == password);
+            user = _unitOfWork.AuthenticationRepository.GetUserByEmail(email);
+            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password)) return null;
 
-            if (user == null)
-                return null;
-
-            var role = _unitOfWork.RoleRepository.GetById(user.RoleId);
+            var role = _unitOfWork.AuthenticationRepository.GetUserRoleById(user.RoleId);
 
             var claims = new[]
             {
-            new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim("UserId", user.UserId.ToString()),
-            new Claim("Email", user.Email.ToString()),
-            new Claim(ClaimTypes.Role, role.RoleName.ToString())
-        };
+                new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim("UserId", user.UserId.ToString()),
+                new Claim("Email", user.Email),
+                new Claim(ClaimTypes.Role, role.RoleName)
+            };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -68,40 +65,88 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> RegisterAsync(User user)
         {
+            if (user == null) throw new Exception("User data cannot be null.");
+
+            var existingUser = _unitOfWork.AuthenticationRepository.GetUserByEmail(user.Email);
+            if (existingUser != null)
+                throw new Exception("User with this email already exists.");
+
+            user.UserId = 0;
+            user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+
+            await _unitOfWork.AuthenticationRepository.AddUserAsync(user);
+            await _unitOfWork.AuthenticationRepository.CommitAsync();
+
+            return new ServiceResult(Const.SUCCESS_CREATE_CODE, Const.SUCCESS_CREATE_MSG, user);
+        }
+
+        public async Task<IServiceResult> ForgotPasswordAsync(string email)
+        {
+            var user = _unitOfWork.AuthenticationRepository.GetUserByEmail(email);
             if (user == null)
-                throw new Exception("User data cannot be null.");
+                return new ServiceResult(Const.FAIL_CREATE_CODE, "User with this email does not exist.");
+
+            var claims = new[]
+            {
+                new Claim("UserId", user.UserId.ToString()),
+                new Claim("Email", user.Email)
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(
+                _configuration["Jwt:Issuer"],
+                _configuration["Jwt:Audience"],
+                claims,
+                expires: DateTime.UtcNow.AddMinutes(30),
+                signingCredentials: signIn
+            );
+
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+
+            var resetLink = $"https://yourwebsite.com/reset-password?token={tokenString}";
+            var emailMessage = $"<p>Please reset your password by clicking <a href='{resetLink}'>here</a>.</p>";
+            await _emailService.SendEmailAsync(email, "Password Reset Request", emailMessage);
+
+            return new ServiceResult(Const.SUCCESS_CREATE_CODE, "Reset link sent to your email.");
+        }
+
+        public async Task<IServiceResult> ResetPasswordAsync(string token, string newPassword)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            SecurityToken validatedToken;
+
+            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
+            var validationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidIssuer = _configuration["Jwt:Issuer"],
+                ValidAudience = _configuration["Jwt:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero
+            };
 
             try
             {
-                var existingUser = _context.Users.FirstOrDefault(x => x.Email == user.Email);
-                if (existingUser != null)
-                {
-                    throw new Exception("User with this email already exists.");
-                }
+                var principal = tokenHandler.ValidateToken(token, validationParameters, out validatedToken);
+                var userIdClaim = principal.FindFirst("UserId")?.Value;
+                if (userIdClaim == null) throw new SecurityTokenException("Invalid token.");
 
-                // Ensure that UserId is not set manually
-                user.UserId = 0;  // This will ensure the database auto-generates the value
+                var user = _unitOfWork.AuthenticationRepository.GetUserById(int.Parse(userIdClaim));
+                if (user == null) throw new Exception("User does not exist.");
 
-                // Hash the password before storing it
-                var hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
-                user.Password = hashedPassword;
+                user.Password = BCrypt.Net.BCrypt.HashPassword(newPassword);
+                _unitOfWork.AuthenticationRepository.UpdateUser(user);
+                await _unitOfWork.AuthenticationRepository.CommitAsync();
 
-                _context.Users.Add(user);  // Add user entity to context
-                _context.SaveChanges();    // Save changes to database
-
-                return  new ServiceResult(Const.SUCCESS_CREATE_CODE, Const.SUCCESS_CREATE_MSG, user);
+                return new ServiceResult(Const.SUCCESS_CREATE_CODE, "Password reset successfully.");
             }
-            catch (DbUpdateException dbEx)
+            catch (SecurityTokenException)
             {
-                // Handle database-specific exceptions
-                throw new InvalidOperationException($"Database error: {dbEx.InnerException?.Message}");
-            }
-            catch (Exception ex)
-            {
-                // Handle any general exceptions
-                throw new Exception($"An error occurred while registering the user: {ex.Message}");
+                return new ServiceResult(Const.FAIL_CREATE_CODE, "Invalid or expired token.");
             }
         }
     }
-
 }

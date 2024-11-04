@@ -120,6 +120,8 @@ builder.Services.AddScoped<ICheckInService, CheckInService>();
 builder.Services.AddScoped<UnitOfWork>();
 builder.Services.AddScoped<IRefundRequestService, RefundRequestService>();
 builder.Services.AddScoped<IScheduleFarmService, ScheduleFarmService>();
+builder.Services.AddTransient<IEmailService, EmailService>();
+
 
 var app = builder.Build();
 
