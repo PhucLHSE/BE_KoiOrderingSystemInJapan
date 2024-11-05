@@ -1,36 +1,91 @@
-﻿using KoiOrderingSystemInJapan.Data;
-using KoiOrderingSystemInJapan.Data.DBContext;
-using KoiOrderingSystemInJapan.Data.Models;
-using KoiOrderingSystemInJapan.Data.Repository;
+﻿using KoiOrderingSystemInJapan.Data.Models;
 using KoiOrderingSystemInJapan.Service;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace KoiOrderingSystemInJapan.APIService.Controllers
 {
-    
+    public class UserLoginDto
+    {
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email address")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Password is required")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+    }
+
+    public class UserRegistrationDto
+    {
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email address")]
+        [StringLength(200)]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Password is required")]
+        [DataType(DataType.Password)]
+        [StringLength(200)]
+        public string Password { get; set; }
+
+        [Required(ErrorMessage = "Full Name is required")]
+        [StringLength(200)]
+        public string FullName { get; set; }
+
+        [Required(ErrorMessage = "Username is required")]
+        [StringLength(200)]
+        public string UserName { get; set; }
+
+        [Phone(ErrorMessage = "Invalid phone number")]
+        [StringLength(20)]
+        public string PhoneNumber { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateOnly BirthDate { get; set; }
+
+        [StringLength(300)]
+        public string Address { get; set; }
+
+        [Required(ErrorMessage = "IsActive status is required")]
+        public bool IsActive { get; set; } = true; // Default to active
+
+        [Required(ErrorMessage = "IsVerified status is required")]
+        public bool IsVerified { get; set; } = false; // Default to not verified
+    }
+
+    public class ForgotPasswordRequest
+    {
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email address")]
+        public string Email { get; set; }
+    }
+
+    public class ResetPasswordRequest
+    {
+        [Required(ErrorMessage = "Token is required")]
+        public string Token { get; set; }
+
+        [Required(ErrorMessage = "New password is required")]
+        [DataType(DataType.Password)]
+        public string NewPassword { get; set; }
+    }
+
+
     [ApiController]
     [Route("[controller]")]
     public class AuthenticationController : ControllerBase
     {
         private readonly IAuthenticationService _authService;
-        private readonly KoiOrderingSystemInJapanContext _context;
+        private readonly IEmailService _emailService;
 
-        public AuthenticationController(IAuthenticationService authService, KoiOrderingSystemInJapanContext context)
+        public AuthenticationController(IAuthenticationService authService, IEmailService emailService)
         {
             _authService = authService;
-            _context = context;
+            _emailService = emailService;
         }
 
-        [HttpPost]
-        [Route("Login")]
+        [HttpPost("Login")]
         public IActionResult Login([FromBody] UserLoginDto loginDto)
         {
             if (!ModelState.IsValid)
@@ -44,28 +99,61 @@ namespace KoiOrderingSystemInJapan.APIService.Controllers
             return Ok(new { Token = token, User = user });
         }
 
-        [Route("Register")]
-        [HttpPost]
-        public async Task<IActionResult> Register(User user)
-        {
-            if (user == null)
-            {
-                return BadRequest("User data cannot be null.");
-            }
+        [HttpPost("Register")]
+public async Task<IActionResult> Register([FromBody] UserRegistrationDto registrationDto)
+{
+    if (!ModelState.IsValid)
+        return BadRequest(ModelState);
 
-            try
-            {
-                var registeredUser = await _authService.RegisterAsync(user);
-                return Ok(new { Message = "User registered successfully", User = registeredUser });
+    try
+    {
+        var newUser = new User
+        {
+            Email = registrationDto.Email,
+            Password = registrationDto.Password,
+            FullName = registrationDto.FullName,
+            UserName = registrationDto.UserName,
+            PhoneNumber = registrationDto.PhoneNumber,
+            BirthDate = registrationDto.BirthDate,
+            Address = registrationDto.Address,
+            IsActive = registrationDto.IsActive,
+            IsVerified = registrationDto.IsVerified,
+            RoleId = 1
+            
+        };
+
+        var registeredUserResult = await _authService.RegisterAsync(newUser);
+        if (registeredUserResult == null)
+            return BadRequest("Registration failed.");
+
+        var token = _authService.Authenticate(newUser.Email, registrationDto.Password, out var user);
+
+        return Ok(new { Message = "User registered successfully", Token = token, User = registeredUserResult });
+    }
+    catch (InvalidOperationException ex)
+    {
+        return BadRequest(new { Message = ex.Message });
+    }
+    catch (Exception ex)
+    {
+                var detailedError = ex.InnerException?.Message ?? ex.Message;
+                return StatusCode(500, new { Message = $"An unexpected error occurred: {detailedError}" });
             }
-            catch (InvalidOperationException ex)
-            {
-                return BadRequest(new { Message = ex.Message });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { Message = $"An unexpected error occurred: {ex.Message}" });
-            }
+}
+
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequest request)
+        {
+            var result = await _authService.ForgotPasswordAsync(request.Email);
+            return Ok(result);
         }
+
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest request)
+        {
+            var result = await _authService.ResetPasswordAsync(request.Token, request.NewPassword);
+            return Ok(result);
+        }
+
     }
 }

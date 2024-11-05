@@ -27,7 +27,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetAll()
         {
-            var refundRequests = await _unitOfWork.RefundRequestRepository.GetAllAsync();
+            var refundRequests = await _unitOfWork.RefundRequestRepository.GetAllRefundRequestsAsync();
 
             if (refundRequests == null)
             {
@@ -41,7 +41,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetById(int RefundRequestId)
         {
-            var refundRequest = await _unitOfWork.RefundRequestRepository.GetByIdAsync(RefundRequestId);
+            var refundRequest = await _unitOfWork.RefundRequestRepository.GetByIdRefundRequestAsync(RefundRequestId);
 
             if (refundRequest == null)
             {

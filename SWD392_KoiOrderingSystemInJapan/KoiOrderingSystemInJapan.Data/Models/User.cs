@@ -70,4 +70,6 @@ public partial class User
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 
     public virtual Role Role { get; set; }
+
+    
 }

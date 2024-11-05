@@ -26,7 +26,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetAll()
         {
-            var feedbacks = await _unitOfWork.FeedbackRepository.GetAllAsync();
+            var feedbacks = await _unitOfWork.FeedbackRepository.GetAllFeedbacksAsync();
 
             if (feedbacks == null)
             {
@@ -40,7 +40,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetById(int FeedbackId)
         {
-            var feedback = await _unitOfWork.FeedbackRepository.GetByIdAsync(FeedbackId);
+            var feedback = await _unitOfWork.FeedbackRepository.GetByIdFeedbackAsync(FeedbackId);
 
             if (feedback == null)
             {

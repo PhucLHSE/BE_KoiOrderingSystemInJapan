@@ -26,7 +26,7 @@ namespace KoiOrderingSystemInJapan.Service
         }
         public async Task<IServiceResult> GetAll()
         {
-            var insurancePolicies = await _unitOfWork.InsurancePolicyRepository.GetAllAsync();
+            var insurancePolicies = await _unitOfWork.InsurancePolicyRepository.GetAllInsurancePoliciesAsync();
             if (insurancePolicies == null)
             {
                 return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new List<InsurancePolicy>());
@@ -38,7 +38,7 @@ namespace KoiOrderingSystemInJapan.Service
         }
         public async Task<IServiceResult> GetById(int InsuranceId)
         {
-            var insurancePolicy = await _unitOfWork.InsurancePolicyRepository.GetByIdAsync(InsuranceId);
+            var insurancePolicy = await _unitOfWork.InsurancePolicyRepository.GetByIdInsurancePolicyAsync(InsuranceId);
             if (insurancePolicy == null)
             {
                 return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new InsurancePolicy());

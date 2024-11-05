@@ -27,7 +27,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetAll()
         {
-            var histories = await _unitOfWork.OrderHistoryRepository.GetAllAsync();
+            var histories = await _unitOfWork.OrderHistoryRepository.GetAllOrderHistoriesAsync();
 
             if (histories == null)
             {
@@ -41,7 +41,7 @@ namespace KoiOrderingSystemInJapan.Service
 
         public async Task<IServiceResult> GetById(int OrderHistoryId)
         {
-            var history = await _unitOfWork.OrderHistoryRepository.GetByIdAsync(OrderHistoryId);
+            var history = await _unitOfWork.OrderHistoryRepository.GetByIdOrderHistoryAsync(OrderHistoryId);
 
             if (history == null)
             {
