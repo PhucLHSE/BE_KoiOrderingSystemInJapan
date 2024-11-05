@@ -20,8 +20,7 @@ namespace KoiOrderingSystemInJapan.Data.Repository
             return await _context.OrderKoiFishes
                 .Include(o => o.Customer)          
                 .Include(o => o.Feedbacks)         
-                .Include(o => o.Insurance)         
-                .Include(o => o.KoiFish)           
+                .Include(o => o.Insurance)                 
                 .Include(o => o.OrderHistories) 
                 .Include(o => o.Payments)      
                 .Include(o => o.RefundRequests) 
@@ -34,7 +33,6 @@ namespace KoiOrderingSystemInJapan.Data.Repository
                 .Include(o => o.Customer)
                 .Include(o => o.Feedbacks)
                 .Include(o => o.Insurance)
-                .Include(o => o.KoiFish)
                 .Include(o => o.OrderHistories)
                 .Include(o => o.Payments)
                 .Include(o => o.RefundRequests)

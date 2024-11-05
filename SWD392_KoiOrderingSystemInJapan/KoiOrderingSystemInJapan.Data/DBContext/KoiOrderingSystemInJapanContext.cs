@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using KoiOrderingSystemInJapan.Data.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace KoiOrderingSystemInJapan.Data.DBContext;
 
@@ -35,6 +34,8 @@ public partial class KoiOrderingSystemInJapanContext : DbContext
 
     public virtual DbSet<OrderKoiFish> OrderKoiFishes { get; set; }
 
+    public virtual DbSet<OrderKoiFishDetail> OrderKoiFishDetails { get; set; }
+
     public virtual DbSet<OrderTrip> OrderTrips { get; set; }
 
     public virtual DbSet<Payment> Payments { get; set; }
@@ -51,22 +52,9 @@ public partial class KoiOrderingSystemInJapanContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    public static string GetConnectionString(string connectionStringName)
-    {
-        var config = new ConfigurationBuilder()
-            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appsettings.json")
-            .Build();
-
-        string connectionString = config.GetConnectionString(connectionStringName);
-        return connectionString;
-    }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(GetConnectionString("DefaultConnection")).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-
-    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-    //        => optionsBuilder.UseSqlServer("Data Source=ADMIN-PC;Initial Catalog=KoiOrderingSystemInJapan;User ID=sa;Password=12345;Encrypt=False");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Data Source=ADMIN-PC;Initial Catalog=KoiOrderingSystemInJapan;Persist Security Info=True;User ID=sa;Password=12345;Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -78,7 +66,6 @@ public partial class KoiOrderingSystemInJapanContext : DbContext
             entity.Property(e => e.CheckInDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
-            entity.Property(e => e.CheckInStatus).HasMaxLength(100);
             entity.Property(e => e.ConsultingStaffId).HasColumnName("ConsultingStaffID");
             entity.Property(e => e.CreatedDate)
                 .HasDefaultValueSql("(getdate())")
@@ -243,9 +230,6 @@ public partial class KoiOrderingSystemInJapanContext : DbContext
                 .HasColumnType("datetime");
             entity.Property(e => e.OrderKoiId).HasColumnName("OrderKoiID");
             entity.Property(e => e.OrderTripId).HasColumnName("OrderTripID");
-            entity.Property(e => e.Status)
-                .HasMaxLength(100)
-                .HasDefaultValue("Completed");
             entity.Property(e => e.TotalPrice).HasColumnType("money");
             entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 
@@ -278,15 +262,11 @@ public partial class KoiOrderingSystemInJapanContext : DbContext
                 .HasDefaultValue(0m)
                 .HasColumnType("money");
             entity.Property(e => e.InsuranceId).HasColumnName("InsuranceID");
-            entity.Property(e => e.KoiFishId).HasColumnName("KoiFishID");
             entity.Property(e => e.OrderDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
             entity.Property(e => e.RemainingBalance).HasColumnType("money");
             entity.Property(e => e.SpecialInstructions).HasMaxLength(500);
-            entity.Property(e => e.Status)
-                .HasMaxLength(100)
-                .HasDefaultValue("Pending");
             entity.Property(e => e.TotalPrice).HasColumnType("money");
             entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 
@@ -299,11 +279,29 @@ public partial class KoiOrderingSystemInJapanContext : DbContext
                 .HasForeignKey(d => d.InsuranceId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_OrderKoiFishes_InsuranceID");
+        });
 
-            entity.HasOne(d => d.KoiFish).WithMany(p => p.OrderKoiFishes)
+        modelBuilder.Entity<OrderKoiFishDetail>(entity =>
+        {
+            entity.HasKey(e => e.OrderKoiFishDetailId).HasName("PK__OrderKoi__5A8C88C8F3B9F40E");
+
+            entity.Property(e => e.OrderKoiFishDetailId).HasColumnName("OrderKoiFishDetailID");
+            entity.Property(e => e.KoiFishId).HasColumnName("KoiFishID");
+            entity.Property(e => e.OrderKoiId).HasColumnName("OrderKoiID");
+            entity.Property(e => e.TotalPrice)
+                .HasComputedColumnSql("([Quantity]*[UnitPrice])", true)
+                .HasColumnType("money");
+            entity.Property(e => e.UnitPrice).HasColumnType("money");
+
+            entity.HasOne(d => d.KoiFish).WithMany(p => p.OrderKoiFishDetails)
                 .HasForeignKey(d => d.KoiFishId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__OrderKoiF__KoiFi__02084FDA");
+                .HasConstraintName("FK__OrderKoiF__KoiFi__634EBE90");
+
+            entity.HasOne(d => d.OrderKoi).WithMany(p => p.OrderKoiFishDetails)
+                .HasForeignKey(d => d.OrderKoiId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__OrderKoiF__Order__625A9A57");
         });
 
         modelBuilder.Entity<OrderTrip>(entity =>
@@ -321,9 +319,6 @@ public partial class KoiOrderingSystemInJapanContext : DbContext
                 .HasColumnType("datetime");
             entity.Property(e => e.ScheduleId).HasColumnName("ScheduleID");
             entity.Property(e => e.SpecialRequests).HasMaxLength(500);
-            entity.Property(e => e.Status)
-                .HasMaxLength(100)
-                .HasDefaultValue("Pending");
             entity.Property(e => e.TotalPrice).HasColumnType("money");
             entity.Property(e => e.TripId).HasColumnName("TripID");
             entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
@@ -361,9 +356,6 @@ public partial class KoiOrderingSystemInJapanContext : DbContext
                 .HasColumnType("datetime");
             entity.Property(e => e.PaymentDescription).HasMaxLength(500);
             entity.Property(e => e.PaymentMethod).HasMaxLength(100);
-            entity.Property(e => e.Status)
-                .HasMaxLength(100)
-                .HasDefaultValue("Completed");
             entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Payments)
@@ -392,9 +384,6 @@ public partial class KoiOrderingSystemInJapanContext : DbContext
             entity.Property(e => e.RequestDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
-            entity.Property(e => e.Status)
-                .HasMaxLength(100)
-                .HasDefaultValue("Pending");
 
             entity.HasOne(d => d.OrderKoi).WithMany(p => p.RefundRequests)
                 .HasForeignKey(d => d.OrderKoiId)
@@ -458,9 +447,6 @@ public partial class KoiOrderingSystemInJapanContext : DbContext
             entity.Property(e => e.MeetingLocation).HasMaxLength(300);
             entity.Property(e => e.Price).HasColumnType("money");
             entity.Property(e => e.SpecialInstructions).HasMaxLength(500);
-            entity.Property(e => e.Status)
-                .HasMaxLength(100)
-                .HasDefaultValue("Scheduled");
             entity.Property(e => e.Transportation).HasMaxLength(200);
             entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
         });

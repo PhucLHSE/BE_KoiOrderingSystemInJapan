@@ -19,11 +19,11 @@ public partial class OrderHistory
 
     public decimal TotalPrice { get; set; }
 
-    public string Status { get; set; }
-
     public DateTime? CreatedDate { get; set; }
 
     public DateTime? UpdatedDate { get; set; }
+
+    public int? Status { get; set; }
 
     public virtual User Customer { get; set; }
 

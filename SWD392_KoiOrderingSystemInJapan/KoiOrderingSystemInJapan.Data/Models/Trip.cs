@@ -25,8 +25,6 @@ public partial class Trip
 
     public string SpecialInstructions { get; set; }
 
-    public string Status { get; set; }
-
     public bool IsActive { get; set; }
 
     public DateTime? CreatedDate { get; set; }
@@ -36,6 +34,8 @@ public partial class Trip
     public double? AverageRating { get; set; }
 
     public string CancellationPolicy { get; set; }
+
+    public int? Status { get; set; }
 
     public virtual ICollection<OrderTrip> OrderTrips { get; set; } = new List<OrderTrip>();
 

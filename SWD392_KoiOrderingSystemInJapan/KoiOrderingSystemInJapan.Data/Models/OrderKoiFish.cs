@@ -11,11 +11,7 @@ public partial class OrderKoiFish
 
     public int CustomerId { get; set; }
 
-    public int KoiFishId { get; set; }
-
     public DateTime? OrderDate { get; set; }
-
-    public int Quantity { get; set; }
 
     public decimal TotalPrice { get; set; }
 
@@ -24,8 +20,6 @@ public partial class OrderKoiFish
     public decimal RemainingBalance { get; set; }
 
     public DateOnly? DeliveryDate { get; set; }
-
-    public string Status { get; set; }
 
     public DateTime? CreatedDate { get; set; }
 
@@ -39,15 +33,17 @@ public partial class OrderKoiFish
 
     public int InsuranceId { get; set; }
 
+    public int? Status { get; set; }
+
     public virtual User Customer { get; set; }
 
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
 
     public virtual InsurancePolicy Insurance { get; set; }
 
-    public virtual KoiFish KoiFish { get; set; }
-
     public virtual ICollection<OrderHistory> OrderHistories { get; set; } = new List<OrderHistory>();
+
+    public virtual ICollection<OrderKoiFishDetail> OrderKoiFishDetails { get; set; } = new List<OrderKoiFishDetail>();
 
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 

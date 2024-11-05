@@ -17,8 +17,6 @@ public partial class OrderTrip
 
     public decimal TotalPrice { get; set; }
 
-    public string Status { get; set; }
-
     public DateTime? CreatedDate { get; set; }
 
     public DateTime? UpdatedDate { get; set; }
@@ -28,6 +26,8 @@ public partial class OrderTrip
     public string SpecialRequests { get; set; }
 
     public int? ScheduleId { get; set; }
+
+    public int? Status { get; set; }
 
     public virtual User Customer { get; set; }
 

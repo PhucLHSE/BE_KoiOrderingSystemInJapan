@@ -15,8 +15,6 @@ public partial class CheckIn
 
     public DateTime? CheckInDate { get; set; }
 
-    public string CheckInStatus { get; set; }
-
     public DateTime? CreatedDate { get; set; }
 
     public DateTime? UpdatedDate { get; set; }
@@ -24,6 +22,8 @@ public partial class CheckIn
     public string Notes { get; set; }
 
     public int? ScheduleId { get; set; }
+
+    public int? CheckInStatus { get; set; }
 
     public virtual User ConsultingStaff { get; set; }
 

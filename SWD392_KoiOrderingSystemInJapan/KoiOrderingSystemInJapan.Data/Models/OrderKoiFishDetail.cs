@@ -5,21 +5,21 @@ using System.Collections.Generic;
 
 namespace KoiOrderingSystemInJapan.Data.Models;
 
-public partial class RefundRequest
+public partial class OrderKoiFishDetail
 {
-    public int RefundRequestId { get; set; }
+    public int OrderKoiFishDetailId { get; set; }
 
     public int OrderKoiId { get; set; }
 
-    public DateTime? RequestDate { get; set; }
+    public int KoiFishId { get; set; }
 
-    public decimal? RefundAmount { get; set; }
+    public int Quantity { get; set; }
 
-    public string Reason { get; set; }
+    public decimal UnitPrice { get; set; }
 
-    public DateTime? ProcessedDate { get; set; }
+    public decimal? TotalPrice { get; set; }
 
-    public int? Status { get; set; }
+    public virtual KoiFish KoiFish { get; set; }
 
     public virtual OrderKoiFish OrderKoi { get; set; }
 }
