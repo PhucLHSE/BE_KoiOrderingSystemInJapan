@@ -161,25 +161,35 @@ CREATE TABLE OrderTrips (
     FOREIGN KEY (TripID) REFERENCES Trips(TripID)
 );
 
--- Bảng OrderKoiFishes
+-- OrderKoiFishes table
 CREATE TABLE OrderKoiFishes (
-    OrderKoiID INT PRIMARY KEY IDENTITY(1,1), -- Mã đơn đặt cá Koi
-    CustomerID INT NOT NULL, -- Liên kết với bảng Users
-    KoiFishID INT NOT NULL, -- Liên kết với bảng KoiFishes
-    OrderDate DATETIME DEFAULT GETDATE(), -- Ngày đặt hàng
-    Quantity INT NOT NULL, -- Số lượng cá Koi đặt
-    TotalPrice MONEY NOT NULL, -- Tổng giá cho đơn hàng
-    Deposit MONEY DEFAULT 0, -- Khoản đặt cọc (nếu có)
-	RemainingBalance MONEY NOT NULL, -- Số tiền còn lại cần thanh toán
-    DeliveryDate DATE, -- Ngày giao hàng
-    Status NVARCHAR(100) DEFAULT 'Pending', -- Trạng thái đơn hàng (Pending, Completed, Cancelled)
+    OrderKoiID INT PRIMARY KEY IDENTITY(1,1), -- Order ID for Koi Fish order
+    CustomerID INT NOT NULL, -- Reference to Users table
+    InsuranceID INT, -- Reference to InsurancePolicies (optional)
+    OrderDate DATETIME DEFAULT GETDATE(), -- Order date
+    TotalPrice MONEY NOT NULL, -- Total price for the order
+    Deposit MONEY DEFAULT 0, -- Deposit amount (if any)
+    RemainingBalance MONEY NOT NULL, -- Remaining balance to be paid
+    DeliveryDate DATE, -- Delivery date
+    Status NVARCHAR(100) DEFAULT 'Pending', -- Order status (Pending, Completed, Cancelled)
     CreatedDate DATETIME DEFAULT GETDATE(),
     UpdatedDate DATETIME,
-	--PaymentStatus NVARCHAR(100) DEFAULT 'Not Paid', -- Tình trạng thanh toán
-    DeliveryMethod NVARCHAR(200), -- Phương thức giao hàng
-    SpecialInstructions NVARCHAR(500), -- Hướng dẫn đặc biệt cho giao hàng
-    CancellationReason NVARCHAR(500), -- Lý do hủy đơn
+    DeliveryMethod NVARCHAR(200), -- Delivery method
+    SpecialInstructions NVARCHAR(500), -- Special instructions for delivery
+    CancellationReason NVARCHAR(500), -- Reason for cancellation
     FOREIGN KEY (CustomerID) REFERENCES Users(UserID),
+    FOREIGN KEY (InsuranceID) REFERENCES InsurancePolicies(InsuranceID)
+);
+
+-- OrderKoiFishDetails table to handle order line items
+CREATE TABLE OrderKoiFishDetails (
+    OrderKoiFishDetailID INT PRIMARY KEY IDENTITY(1,1), -- Order line item ID
+    OrderKoiID INT NOT NULL, -- Reference to OrderKoiFishes
+    KoiFishID INT NOT NULL, -- Reference to KoiFishes
+    Quantity INT NOT NULL, -- Quantity of each Koi Fish ordered
+    UnitPrice MONEY NOT NULL, -- Unit price at the time of order
+    TotalPrice AS (Quantity * UnitPrice) PERSISTED, -- Auto-calculated total price
+    FOREIGN KEY (OrderKoiID) REFERENCES OrderKoiFishes(OrderKoiID),
     FOREIGN KEY (KoiFishID) REFERENCES KoiFishes(KoiFishID)
 );
 
@@ -416,3 +426,13 @@ ALTER COLUMN InsuranceID INT NOT NULL;
 -- Bước 4: Thêm khóa ngoại cho InsuranceID
 ALTER TABLE OrderKoiFishes
 ADD CONSTRAINT FK_OrderKoiFishes_InsuranceID FOREIGN KEY (InsuranceID) REFERENCES InsurancePolicies(InsuranceID);
+
+
+ALTER TABLE Trips
+DROP CONSTRAINT DF__Trips__Status__66603565;
+
+ALTER TABLE Trips
+DROP COLUMN Status;
+
+ALTER TABLE Trips
+ADD Status int;
