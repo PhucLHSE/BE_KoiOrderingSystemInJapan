@@ -3,7 +3,6 @@
 using KoiOrderingSystemInJapan.Common.Enum;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace KoiOrderingSystemInJapan.Data.Models;
@@ -70,6 +69,4 @@ public partial class User
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 
     public virtual Role Role { get; set; }
-
-    
 }

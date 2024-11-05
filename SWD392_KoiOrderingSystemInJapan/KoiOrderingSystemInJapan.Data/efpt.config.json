@@ -43,6 +43,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[OrderKoiFishDetails]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[OrderKoiFishes]",
          "ObjectType": 0
       },

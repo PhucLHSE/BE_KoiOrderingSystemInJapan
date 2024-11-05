@@ -21,8 +21,6 @@ public partial class Payment
 
     public string PaymentMethod { get; set; }
 
-    public string Status { get; set; }
-
     public string PaymentDescription { get; set; }
 
     public DateTime? CreatedDate { get; set; }
@@ -32,6 +30,8 @@ public partial class Payment
     public string Currency { get; set; }
 
     public bool IsPartialPayment { get; set; }
+
+    public int? Status { get; set; }
 
     public virtual User Customer { get; set; }
 

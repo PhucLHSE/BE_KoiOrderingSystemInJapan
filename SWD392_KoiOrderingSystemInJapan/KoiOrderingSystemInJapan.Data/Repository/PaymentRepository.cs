@@ -47,17 +47,17 @@ namespace KoiOrderingSystemInJapan.Data.Repository
         {
             return await _context.Payments.FirstOrDefaultAsync(p => p.OrderKoiId == orderKoiId);
         }
-        public async Task<List<Payment>> GetAllPayment()
-        {
-            return await _context.Payments.Where(x => x.Status == "Completed").ToListAsync();
-        }
-        public async Task<bool> HasSuccessfulPayment(int customerId, int koiFishId)
-        {
-            return await _context.Payments
-                .Include(p => p.OrderKoi)
-                .AnyAsync(p => p.OrderKoi.CustomerId == customerId &&
-                               p.OrderKoi.KoiFishId == koiFishId && // Sử dụng Where
-                               p.OrderKoi.Status == "Completed");
-        }
+        //public async Task<List<Payment>> GetAllPayment()
+        //{
+        //    return await _context.Payments.Where(x => x.Status == "Completed").ToListAsync();
+        //}
+        //public async Task<bool> HasSuccessfulPayment(int customerId, int koiFishId)
+        //{
+        //    return await _context.Payments
+        //        .Include(p => p.OrderKoi)
+        //        .AnyAsync(p => p.OrderKoi.CustomerId == customerId &&
+        //                       p.OrderKoi.KoiFishId == koiFishId && // Sử dụng Where
+        //                       p.OrderKoi.Status == "Completed");
+        //}
     }
 }
