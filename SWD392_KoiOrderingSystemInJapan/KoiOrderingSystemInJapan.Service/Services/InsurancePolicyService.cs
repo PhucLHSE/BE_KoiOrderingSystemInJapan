@@ -7,16 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace KoiOrderingSystemInJapan.Service
+using KoiOrderingSystemInJapan.Service.Interfaces;
+namespace KoiOrderingSystemInJapan.Service.Services
 {
-    public interface IInsurancePolicyService
-    {
-        Task<IServiceResult> GetAll();
-        Task<IServiceResult> GetById(int InsuranceId);
-        Task<IServiceResult> Save(InsurancePolicy insurancePolicy);
-        Task<IServiceResult> DeleteById(int InsuranceId);
-    }
     public class InsurancePolicyService : IInsurancePolicyService
     {
         private readonly UnitOfWork _unitOfWork;

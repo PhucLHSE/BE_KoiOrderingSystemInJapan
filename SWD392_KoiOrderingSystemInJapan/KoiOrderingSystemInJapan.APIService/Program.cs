@@ -1,21 +1,17 @@
 ﻿using KoiOrderingSystemInJapan.Data;
+using KoiOrderingSystemInJapan.Data.Abstractions.Setting;
 using KoiOrderingSystemInJapan.Data.DBContext;
-using KoiOrderingSystemInJapan.Service;
+using KoiOrderingSystemInJapan.Service.Services;
+using KoiOrderingSystemInJapan.Service.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
-using Net.payOS;
 using System.Text.Encodings.Web;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
-var payOSClientId = builder.Configuration["Environment:PAYOS_CLIENT_ID"] ?? throw new Exception("Cannot find environment");
-var payOSApiKey = builder.Configuration["Environment:PAYOS_API_KEY"] ?? throw new Exception("Cannot find environment");
-var payOSChecksumKey = builder.Configuration["Environment:PAYOS_CHECKSUM_KEY"] ?? throw new Exception("Cannot find environment");
 builder.Services.AddHttpClient();
-var payOS = new PayOS(payOSClientId, payOSApiKey, payOSChecksumKey);
-builder.Services.AddSingleton(payOS);
 
 builder.Services.AddAuthorization();
 
@@ -99,6 +95,7 @@ builder.Services.AddSwaggerGen(c =>
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<KoiOrderingSystemInJapanContext>();
@@ -121,6 +118,11 @@ builder.Services.AddScoped<UnitOfWork>();
 builder.Services.AddScoped<IRefundRequestService, RefundRequestService>();
 builder.Services.AddScoped<IScheduleFarmService, ScheduleFarmService>();
 builder.Services.AddTransient<IEmailService, EmailService>();
+
+
+builder.Services.AddTransient<KoiOrderingSystemInJapan.Data.Contract.Interfaces.IPaymentService, KoiOrderingSystemInJapan.Data.Contract.Services.PaymentService>();
+
+builder.Services.Configure<PayOSSetting>(builder.Configuration.GetSection(PayOSSetting.SectionName));
 
 
 var app = builder.Build();

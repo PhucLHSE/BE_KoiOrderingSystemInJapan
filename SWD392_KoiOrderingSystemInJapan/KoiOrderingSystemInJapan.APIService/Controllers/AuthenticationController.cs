@@ -1,9 +1,9 @@
 ﻿using KoiOrderingSystemInJapan.Data.Models;
-using KoiOrderingSystemInJapan.Service;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
-
+using KoiOrderingSystemInJapan.Service.Interfaces;
+using KoiOrderingSystemInJapan.Service.Services;
 namespace KoiOrderingSystemInJapan.APIService.Controllers
 {
     public class UserLoginDto

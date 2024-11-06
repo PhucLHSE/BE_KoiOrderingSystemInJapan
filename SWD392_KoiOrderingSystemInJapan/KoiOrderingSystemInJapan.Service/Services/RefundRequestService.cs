@@ -7,16 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace KoiOrderingSystemInJapan.Service
+using KoiOrderingSystemInJapan.Service.Interfaces;
+namespace KoiOrderingSystemInJapan.Service.Services
 {
-    public interface IRefundRequestService
-    {
-        Task<IServiceResult> GetAll();
-        Task<IServiceResult> GetById(int RefundRequestId);
-        Task<IServiceResult> Save(RefundRequest refundRequest);
-        Task<IServiceResult> DeleteById(int RefundRequestId);
-    }
     public class RefundRequestService : IRefundRequestService
     {
         private readonly UnitOfWork _unitOfWork;

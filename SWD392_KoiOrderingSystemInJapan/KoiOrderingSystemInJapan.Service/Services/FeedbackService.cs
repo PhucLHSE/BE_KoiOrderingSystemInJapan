@@ -5,16 +5,9 @@ using KoiOrderingSystemInJapan.Service.Base;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
-namespace KoiOrderingSystemInJapan.Service
+using KoiOrderingSystemInJapan.Service.Interfaces;
+namespace KoiOrderingSystemInJapan.Service.Services
 {
-    public interface IFeedbackService
-    {
-        Task<IServiceResult> GetAll();
-        Task<IServiceResult> GetById(int FeedbackId);
-        Task<IServiceResult> Save(Feedback feedback);
-        Task<IServiceResult> DeleteById(int FeedbackId);
-    }
     public class FeedbackService : IFeedbackService
     {
         private readonly UnitOfWork _unitOfWork;

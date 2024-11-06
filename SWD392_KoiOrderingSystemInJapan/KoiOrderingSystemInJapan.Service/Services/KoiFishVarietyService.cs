@@ -7,16 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KoiOrderingSystemInJapan.Service.Interfaces;
 
-namespace KoiOrderingSystemInJapan.Service
+namespace KoiOrderingSystemInJapan.Service.Services
 {
-    public interface IKoiFishVarietyService
-    {
-        Task<IServiceResult> GetAll();
-        Task<IServiceResult> GetById(int RoleId);
-        Task<IServiceResult> Save(KoiFishVariety koiFishVariety);
-        Task<IServiceResult> DeleteById(int RoleId);
-    }
     public class KoiFishVarietyService : IKoiFishVarietyService
     {
         private readonly UnitOfWork _unitOfWork;

@@ -9,17 +9,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace KoiOrderingSystemInJapan.Service
+using KoiOrderingSystemInJapan.Service.Interfaces;
+namespace KoiOrderingSystemInJapan.Service.Services
 {
-    public interface IAuthenticationService
-    {
-        string Authenticate(string email, string password, out User user);
-        Task<IServiceResult> RegisterAsync(User user);
-        Task<IServiceResult> ForgotPasswordAsync(string email);
-        Task<IServiceResult> ResetPasswordAsync(string token, string newPassword);
-    }
-
     public class AuthenticationService : IAuthenticationService
     {
         private readonly UnitOfWork _unitOfWork;

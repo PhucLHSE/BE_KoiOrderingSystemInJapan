@@ -5,16 +5,9 @@ using KoiOrderingSystemInJapan.Service.Base;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
-namespace KoiOrderingSystemInJapan.Service
+using KoiOrderingSystemInJapan.Service.Interfaces;
+namespace KoiOrderingSystemInJapan.Service.Services
 {
-    public interface ICheckInService
-    {
-        Task<IServiceResult> GetAll();
-        Task<IServiceResult> GetById(int CheckInId);
-        Task<IServiceResult> Save(CheckIn checkIn);
-        Task<IServiceResult> DeleteById(int CheckInId);
-    }
 
     public class CheckInService : ICheckInService
     {

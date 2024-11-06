@@ -7,9 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using KoiOrderingSystemInJapan.Data.DBContext;
 using KoiOrderingSystemInJapan.Data.Models;
-using KoiOrderingSystemInJapan.Service;
 using KoiOrderingSystemInJapan.Service.Base;
 using KoiOrderingSystemInJapan.Common;
+using KoiOrderingSystemInJapan.Service.Services;
+using KoiOrderingSystemInJapan.Service.Interfaces;
 
 namespace KoiOrderingSystemInJapan.APIService.Controllers
 {
