@@ -2,11 +2,8 @@
 using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using KoiOrderingSystemInJapan.Service.Interfaces;
 
-public interface IEmailService
-{
-    Task SendEmailAsync(string toEmail, string subject, string message);
-}
 
 public class EmailService : IEmailService
 {

@@ -1,7 +1,8 @@
 ﻿using KoiOrderingSystemInJapan.Data;
 using KoiOrderingSystemInJapan.Data.Abstractions.Setting;
 using KoiOrderingSystemInJapan.Data.DBContext;
-using KoiOrderingSystemInJapan.Service;
+using KoiOrderingSystemInJapan.Service.Services;
+using KoiOrderingSystemInJapan.Service.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;

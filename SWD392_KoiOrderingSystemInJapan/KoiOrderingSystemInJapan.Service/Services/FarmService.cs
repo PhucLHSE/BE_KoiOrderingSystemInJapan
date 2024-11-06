@@ -7,16 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace KoiOrderingSystemInJapan.Service
+using KoiOrderingSystemInJapan.Service.Interfaces;
+namespace KoiOrderingSystemInJapan.Service.Services
 {
-    public interface IFarmService
-    {
-        Task<IServiceResult> GetAll();
-        Task<IServiceResult> GetById(int FarmId);
-        Task<IServiceResult> Save(Farm farm);
-        Task<IServiceResult> DeleteById(int FarmId);
-    }
     public class FarmService : IFarmService
     {
         private readonly UnitOfWork _unitOfWork;

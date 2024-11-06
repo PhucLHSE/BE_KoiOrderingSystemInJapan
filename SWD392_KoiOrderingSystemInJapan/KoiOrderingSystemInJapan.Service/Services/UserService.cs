@@ -7,16 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace KoiOrderingSystemInJapan.Service
+using KoiOrderingSystemInJapan.Service.Interfaces;
+namespace KoiOrderingSystemInJapan.Service.Services
 {
-    public interface IUserService
-    {
-        Task<IServiceResult> GetAll();
-        Task<IServiceResult> GetById(int UserId);
-        Task<IServiceResult> Save(User user);
-        Task<IServiceResult> DeleteById(int UserId);
-    }
     public class UserService : IUserService
     {
         private readonly UnitOfWork _unitOfWork;

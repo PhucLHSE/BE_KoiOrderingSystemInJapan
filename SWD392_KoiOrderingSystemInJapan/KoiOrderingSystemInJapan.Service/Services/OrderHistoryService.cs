@@ -7,16 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace KoiOrderingSystemInJapan.Service
+using KoiOrderingSystemInJapan.Service.Interfaces;
+namespace KoiOrderingSystemInJapan.Service.Services
 {
-    public interface IOrderHistoryService
-    {
-        Task<IServiceResult> GetAll();
-        Task<IServiceResult> GetById(int OrderHistoryId);
-        Task<IServiceResult> Save(OrderHistory history);
-        Task<IServiceResult> DeleteById(int OrderHistoryId);
-    }
+
     public class OrderHistoryService : IOrderHistoryService
     {
         private readonly UnitOfWork _unitOfWork;

@@ -8,16 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-
-namespace KoiOrderingSystemInJapan.Service
+using KoiOrderingSystemInJapan.Service.Interfaces;
+namespace KoiOrderingSystemInJapan.Service.Services
 {
-    public interface IRoleService
-    {
-        Task<IServiceResult> GetAll();
-        Task<IServiceResult> GetById(int RoleId);
-        Task<IServiceResult> Save(Role role);
-        Task<IServiceResult> DeleteById(int RoleId);
-    }
     public class RoleService : IRoleService
     {
         private readonly UnitOfWork _unitOfWork;

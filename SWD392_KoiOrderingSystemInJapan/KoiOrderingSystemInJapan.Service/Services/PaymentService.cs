@@ -5,16 +5,9 @@ using KoiOrderingSystemInJapan.Service.Base;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
-namespace KoiOrderingSystemInJapan.Service
+using KoiOrderingSystemInJapan.Service.Interfaces;
+namespace KoiOrderingSystemInJapan.Service.Services
 {
-    public interface IPaymentService
-    {
-        Task<IServiceResult> GetAll();
-        Task<IServiceResult> GetById(int PaymentId);
-        Task<IServiceResult> Save(Payment payment);
-        Task<IServiceResult> DeleteById(int PaymentId);
-    }
 
     public class PaymentService : IPaymentService
     {

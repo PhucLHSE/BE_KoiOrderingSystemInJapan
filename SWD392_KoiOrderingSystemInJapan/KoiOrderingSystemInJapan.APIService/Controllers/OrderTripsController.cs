@@ -2,8 +2,9 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using KoiOrderingSystemInJapan.Data.Models;
-using KoiOrderingSystemInJapan.Service; // Ensure this is where your service interfaces are defined
-using KoiOrderingSystemInJapan.Service.Base; // Ensure this is where IServiceResult is defined
+using KoiOrderingSystemInJapan.Service.Base;
+using KoiOrderingSystemInJapan.Service.Services; // Ensure this is where IServiceResult is defined
+using KoiOrderingSystemInJapan.Service.Interfaces;
 
 namespace KoiOrderingSystemInJapan.APIService.Controllers
 {

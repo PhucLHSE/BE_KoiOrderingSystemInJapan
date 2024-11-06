@@ -7,16 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KoiOrderingSystemInJapan.Service.Interfaces;
 
-namespace KoiOrderingSystemInJapan.Service
+namespace KoiOrderingSystemInJapan.Service.Services
 {
-    public interface ITripService
-    {
-        Task<IServiceResult> GetAll();
-        Task<IServiceResult> GetById(int TripId);
-        Task<IServiceResult> Save(Trip trip);
-        Task<IServiceResult> DeleteById(int TripId);
-    }
     public class TripService : ITripService
     {
         private readonly UnitOfWork _unitOfWork;
