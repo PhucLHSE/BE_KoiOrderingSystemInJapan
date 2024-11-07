@@ -8,8 +8,14 @@ namespace KoiOrderingSystemInJapan.Common.Enum
 {
     public enum OrderTripStatus
     {
-        Pending, 
+        //Pending, 
+        //Confirmed,
+        //Cancelled
+        PendingApproval,
+        Approved,
+        NotApproved,
+        AwaitingConfirmation,
         Confirmed,
-        Cancelled
+        Declined
     }
 }

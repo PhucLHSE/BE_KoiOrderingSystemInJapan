@@ -10,5 +10,6 @@ namespace KoiOrderingSystemInJapan.Common.Enum
     {
         Completed,
         Canceled,
+        Processing
     }
 }

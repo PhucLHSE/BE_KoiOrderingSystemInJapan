@@ -118,7 +118,7 @@ public async Task<IActionResult> Register([FromBody] UserRegistrationDto registr
             Address = registrationDto.Address,
             IsActive = registrationDto.IsActive,
             IsVerified = registrationDto.IsVerified,
-            RoleId = 1
+            RoleId = 2
             
         };
 
