@@ -28,7 +28,7 @@ namespace KoiOrderingSystemInJapan.Data
         private InsurancePolicyRepository insurancePolicyRepository;
         private RefundRequestRepository refundRequestRepository;
         private AuthenticationRepository authenticationRepository;
-
+        private OrderKoiFishDetailRepository orderKoiFishDetailRepository;
         public UnitOfWork()
         {
             context ??= new KoiOrderingSystemInJapanContext();
@@ -164,6 +164,13 @@ namespace KoiOrderingSystemInJapan.Data
             get
             {
                 return authenticationRepository ??= new AuthenticationRepository(context);
+            }
+        }
+        public OrderKoiFishDetailRepository OrderKoiFishDetailRepository
+        {
+            get
+            {
+                return orderKoiFishDetailRepository ??= new OrderKoiFishDetailRepository(context);
             }
         }
     }
