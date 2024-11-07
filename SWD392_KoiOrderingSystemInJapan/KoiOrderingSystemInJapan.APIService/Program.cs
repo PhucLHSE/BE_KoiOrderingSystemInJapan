@@ -118,6 +118,7 @@ builder.Services.AddScoped<UnitOfWork>();
 builder.Services.AddScoped<IRefundRequestService, RefundRequestService>();
 builder.Services.AddScoped<IScheduleFarmService, ScheduleFarmService>();
 builder.Services.AddTransient<IEmailService, EmailService>();
+builder.Services.AddScoped<IOrderKoiFishDetailService, OrderKoiFishDetailService>();
 
 
 builder.Services.AddTransient<KoiOrderingSystemInJapan.Data.Contract.Interfaces.IPaymentService, KoiOrderingSystemInJapan.Data.Contract.Services.PaymentService>();
