@@ -8,7 +8,10 @@ namespace KoiOrderingSystemInJapan.Common.Enum
 {
     public enum CheckInStatus
     {
-        Checked,
-        Missed
+        //Checked,
+        //Missed
+        AwaitingChecking,
+        CheckInSuccess,
+        MissedCheckIn
     }
 }

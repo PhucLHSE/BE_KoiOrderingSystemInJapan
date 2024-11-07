@@ -9,6 +9,10 @@ namespace KoiOrderingSystemInJapan.Common.Enum
     public enum OrderKoiFishStatus
     {
         Pending,
+        Confirmed,
+        Preparing,
+        ReadyforPickup,
+        OutforDelivery,
         Completed,
         Cancelled
     }
